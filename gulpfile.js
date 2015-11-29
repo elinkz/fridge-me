@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const sass = require('gulp-ruby-sass');
+const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const minifycss = require('gulp-minify-css');
 const rename = require('gulp-rename');
@@ -12,9 +12,9 @@ const del = require('del');
 const styleGlob = 'src/scss/**/*.scss'
 const scriptGlob = 'src/scripts/**/*.js'
 
-
-gulp.task('styles', () => {
-    return sass('app/src/scss/_all .scss')
+/*gulp.task('styles', () => {
+    return sass('app/src/scss/_all.scss')
+    .on('error', sass.logError)
     .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('app/dist/assets/css'))
     
@@ -22,6 +22,14 @@ gulp.task('styles', () => {
     //.pipe(minifycss())
     //.pipe(gulp.dest('dist/assets/css'))
     .pipe(notify({ message: 'Styles task complete' }));
+});*/
+
+gulp.task('styles', function () {
+  return gulp.src('./app/src/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    //.pipe(autoprefixer('last 2 version'))
+    .pipe(gulp.dest('./app/dist/assets/css'))
+    //.pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('scripts', () => {

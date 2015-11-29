@@ -1,0 +1,38 @@
+/* style.scss */
+
+/*
+  These are general media-query independent imports, other general imports that
+  are dependant on media-queries are imported within _all.scss.
+*/
+
+@import 'base/variables';
+
+@import 'helpers/mixins';
+@import 'helpers/utils';
+
+@import 'vendor/normalize';
+
+@import 'base/base';
+
+$layout-size: default;
+@import 'all';
+
+@media #{$bp-small} {
+  $layout-size: small;
+  @import 'all';
+}
+
+@media #{$bp-medium} {
+  $layout-size: medium;
+  @import 'all';
+}
+
+@media #{$bp-medium-and-above} {
+  $layout-size: medium-and-above;
+  @import 'all';
+}
+
+@media #{$bp-large} {
+  $layout-size: large;
+  @import 'all';
+}
