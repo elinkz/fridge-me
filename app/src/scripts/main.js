@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom')
 
+const Elin = () => 'hej'
+
 var App = React.createClass({
 	render:function(){
 		return (

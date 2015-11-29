@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
 const browserify = require('browserify');
-const reactify = require('reactify');
 const watchify = require('watchify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
@@ -18,42 +17,6 @@ const notify = require("gulp-notify");
 const styleGlob = 'app/src/scss/**/*.scss'
 const scriptsDir = './app/src/scripts';
 const buildDir = './app/dist/assets/js';
-
-
-gulp.task('sass', function () {
-  return gulp.src('./app/src/scss/style.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer('last 2 version'))
-    .pipe(minifycss())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./app/dist/assets/css'))
-});
-
-// Clean
-gulp.task('clean', () => del(['app/dist/**/*']));
-
-/*gulp.task('scripts', () => {
-    gulp.src(scriptGlob)
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('dist/assets/js'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/js'));
-});*/
-
-/*gulp.task('browserify', function() {
-  return gulp.src(scriptMain)
-    .pipe(sourcemaps.init())
-    .pipe(browserify({
-      transform:'reactify',
-      //debug: !process.env.production
-    }))
-    .pipe(concat('scripts.js'))
-    //.pipe(uglify())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/dist/assets/js'));
-});*/
 
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
@@ -73,8 +36,8 @@ function buildScript(file, watch) {
     packageCache: {}
   };
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
-  
-  bundler.transform(reactify);
+
+  bundler.transform("babelify", { presets: ['es2015', 'react'] });
 
   function rebundle() {
     var stream = bundler.bundle();
@@ -88,22 +51,42 @@ function buildScript(file, watch) {
     gutil.log('Rebundle...');
   });
 
+  bundler.on('time', function (time) {
+    gutil.log('Bundle finished in: ' + time + ' ms.');
+  })
+
   return rebundle();
 }
 
+// Compiles sass. Uses node-sass.
+gulp.task('sass', function () {
+  return gulp.src('./app/src/scss/style.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer('last 2 version'))
+    .pipe(minifycss())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./app/dist/assets/css'))
+});
+
+// Deletes 'dist' directory
+gulp.task('clean', () => del(['app/dist/**/*']));
+
+// Copies index.html to 'dist' directory
 gulp.task('copy', function() {
   return gulp.src('app/index.html')
     .pipe(gulp.dest('app/dist'));
 });
 
+// Task to build project, used when building project for production environment
 gulp.task('build', ['clean', 'sass', 'copy'], function() {
   return buildScript('main.js', false);
 });
 
-
+// Task to build and watch files, used during development
 gulp.task('default', ['build'], function() {
   // Watch .scss files
-  gulp.watch(styleGlob, ['styles']);
+  gulp.watch(styleGlob, ['sass']);
 
   gulp.watch('app/index.html', ['copy']);
   
