@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const browserify = require('gulp-browserify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const minifycss = require('gulp-minify-css');
@@ -10,10 +11,11 @@ const livereload = require('gulp-livereload');
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 
-const styleGlob = 'src/scss/**/*.scss'
-const scriptGlob = 'src/scripts/**/*.js'
+const styleGlob = 'app/src/scss/**/*.scss'
+const scriptGlob = 'app/src/scripts/**/*.js'
+const scriptMain = 'app/src/scripts/main.js'
 
-gulp.task('styles', function () {
+gulp.task('sass', function () {
   return gulp.src('./app/src/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -23,23 +25,28 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('./app/dist/assets/css'))
 });
 
-gulp.task('scripts', () => {
+// Clean
+gulp.task('clean', () => del(['app/dist/**/*']));
+
+/*gulp.task('scripts', () => {
     gulp.src(scriptGlob)
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('dist/assets/js'));
+});*/
+
+gulp.task('browserify', function() {
+  return gulp.src(scriptMain)
+    .pipe(browserify({transform:'reactify'}))
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('app/dist/assets/js'));
 });
 
-// Clean
-gulp.task('clean', () => {
-  return del(['dist/styles', 'dist/scripts']);
-});
-
-// Default task
-gulp.task('default', ['clean'], () => {
-  gulp.start('styles', 'scripts');
+gulp.task('copy', function() {
+  return gulp.src('app/index.html')
+    .pipe(gulp.dest('app/dist'));
 });
 
 
@@ -49,7 +56,9 @@ gulp.task('watch', () => {
   gulp.watch(styleGlob, ['styles']);
 
   // Watch .js files
-  gulp.watch(scriptGlob, ['scripts']);
+  gulp.watch(scriptGlob, ['browserify']);
+
+  gulp.watch('app/index.html', ['copy']);
   
   // Create LiveReload server
   //livereload.listen(35732);
@@ -58,3 +67,6 @@ gulp.task('watch', () => {
   //gulp.watch(['dist/**']).on('change', livereload.changed);
 
 });
+
+// Default task
+gulp.task('default', ['clean', 'browserify', 'sass', 'copy']);
