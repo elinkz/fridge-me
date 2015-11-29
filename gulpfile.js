@@ -5,31 +5,22 @@ const minifycss = require('gulp-minify-css');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
-const notify = require('gulp-notify');
 const cache = require('gulp-cache');
 const livereload = require('gulp-livereload');
 const del = require('del');
+const sourcemaps = require('gulp-sourcemaps');
+
 const styleGlob = 'src/scss/**/*.scss'
 const scriptGlob = 'src/scripts/**/*.js'
 
-/*gulp.task('styles', () => {
-    return sass('app/src/scss/_all.scss')
-    .on('error', sass.logError)
-    .pipe(autoprefixer('last 2 version'))
-    .pipe(gulp.dest('app/dist/assets/css'))
-    
-    //.pipe(rename({suffix: '.min'}))
-    //.pipe(minifycss())
-    //.pipe(gulp.dest('dist/assets/css'))
-    .pipe(notify({ message: 'Styles task complete' }));
-});*/
-
 gulp.task('styles', function () {
   return gulp.src('./app/src/scss/style.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    //.pipe(autoprefixer('last 2 version'))
+    .pipe(autoprefixer('last 2 version'))
+    .pipe(minifycss())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./app/dist/assets/css'))
-    //.pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('scripts', () => {
@@ -38,8 +29,7 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest('dist/assets/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/js'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(gulp.dest('dist/assets/js'));
 });
 
 // Clean
