@@ -6,13 +6,10 @@ const watchify = require('watchify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const minifycss = require('gulp-minify-css');
-const rename = require('gulp-rename');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
-const livereload = require('gulp-livereload');
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 const notify = require("gulp-notify");
+const browserSync = require('browser-sync').create();
 
 const styleGlob = 'app/src/scss/**/*.scss'
 const scriptsDir = './app/src/scripts';
@@ -67,6 +64,7 @@ gulp.task('sass', function () {
     .pipe(minifycss())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./app/dist/assets/css'))
+    .pipe(browserSync.stream());
 });
 
 // Deletes 'dist' directory
@@ -85,6 +83,11 @@ gulp.task('build', ['clean', 'sass', 'copy'], function() {
 
 // Task to build and watch files, used during development
 gulp.task('default', ['build'], function() {
+  // Serves built files with development web server
+  browserSync.init({
+      server: "./app/dist"
+  });
+
   // Watch .scss files
   gulp.watch(styleGlob, ['sass']);
 
