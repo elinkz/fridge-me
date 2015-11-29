@@ -39,8 +39,14 @@ gulp.task('clean', () => del(['app/dist/**/*']));
 
 gulp.task('browserify', function() {
   return gulp.src(scriptMain)
-    .pipe(browserify({transform:'reactify'}))
+    .pipe(sourcemaps.init())
+    .pipe(browserify({
+      transform:'reactify',
+      //debug: !process.env.production
+    }))
     .pipe(concat('scripts.js'))
+    //.pipe(uglify())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/dist/assets/js'));
 });
 
