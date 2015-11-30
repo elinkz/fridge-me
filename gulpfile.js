@@ -92,12 +92,6 @@ gulp.task('default', ['build'], function() {
   gulp.watch(styleGlob, ['sass']);
 
   gulp.watch('app/index.html', ['copy']);
-  
-  // Create LiveReload server
-  //livereload.listen(35732);
-
-  // Watch any files in dist/, reload on change
-  //gulp.watch(['dist/**']).on('change', livereload.changed);
 
   return buildScript('main.js', true);
 });
