@@ -9,6 +9,7 @@ const minifycss = require('gulp-minify-css');
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 const notify = require("gulp-notify");
+const image = require('gulp-image');
 const browserSync = require('browser-sync').create();
 
 const styleGlob = 'app/src/scss/**/*.scss'
@@ -76,8 +77,25 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('app/dist'));
 });
 
+// Images task
+gulp.task('image', function () {
+  gulp.src('./app/img/*')
+    .pipe(image({
+      pngquant: true,
+      optipng: false,
+      zopflipng: true,
+      advpng: true,
+      jpegRecompress: false,
+      jpegoptim: true,
+      mozjpeg: true,
+      gifsicle: true,
+      svgo: true
+    }))
+    .pipe(gulp.dest('./app/dist/assets/img'));
+});
+
 // Task to build project, used when building project for production environment
-gulp.task('build', ['clean', 'sass', 'copy'], function() {
+gulp.task('build', ['clean', 'sass', 'image', 'copy'], function() {
   return buildScript('main.js', false);
 });
 
@@ -85,7 +103,8 @@ gulp.task('build', ['clean', 'sass', 'copy'], function() {
 gulp.task('default', ['build'], function() {
   // Serves built files with development web server
   browserSync.init({
-      server: "./app/dist"
+      server: "./app/dist",
+      port: 8888
   });
 
   // Watch .scss files

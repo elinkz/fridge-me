@@ -6,7 +6,7 @@ class Third extends React.Component {
 		return (
 			<div className="main-module">
 				<h2 className="view-3">
-					Third View
+					3
 				</h2>
 				<ul>
 					<li><Link to="/Second">Go back</Link></li>
