@@ -1,16 +1,10 @@
-var React = require('react');
-var ReactDOM = require('react-dom')
+import React from 'react';
+import { render } from 'react-dom';
+import Router from 'react-router';
+import routes from './config/routes';
 
-const Elin = () => 'hej'
-
-var App = React.createClass({
-	render:function(){
-		return (
-			<div>
-				<h1>Hello World</h1>
-			</div>
-		)
-	}
-});
-
-ReactDOM.render(<App />, document.getElementById('root'));
+render((
+  <Router>
+    { routes }
+  </Router>
+), document.getElementById('root'))
