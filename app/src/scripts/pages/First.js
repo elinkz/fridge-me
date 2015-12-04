@@ -7,7 +7,7 @@ class First extends React.Component {
 		return (
 			<div className="main-module">
 				<h2 className="view-1">First View</h2>
-				<InputForm />
+				<SearchInput />
 				<ul>
           <li><Link to="/Second">Second View</Link></li>
         </ul>

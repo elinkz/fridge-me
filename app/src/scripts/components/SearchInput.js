@@ -1,6 +1,6 @@
 import React from 'react';
 
-class InputForm extends React.Component {
+class SearchInput extends React.Component {
 	render() {
 		return (
 			<div>
@@ -11,4 +11,4 @@ class InputForm extends React.Component {
 	}
 };
 
-export default InputForm;
+export default SearchInput;
