@@ -10,6 +10,7 @@ class Second extends React.Component {
 					2
 				</h2>
 				<SearchInput />
+
 				<ul>
 					<li><Link to="/First">Go back</Link></li>
           <li><Link to="/Third">Go to view #3</Link></li>

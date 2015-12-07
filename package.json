@@ -22,6 +22,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "history": "^1.13.1",
+    "react-radio-group": "^2.2.0",
     "react-router": "^1.0.0",
     "reactfire": "^0.5.1",
     "reactify": "^1.1.1",
