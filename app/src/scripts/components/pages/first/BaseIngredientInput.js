@@ -1,5 +1,5 @@
 import React from 'react';
-import RadioGroup from './radioconfig.js';
+import RadioGroup from '../../radioconfig.js';
 
 
 'use strict';
