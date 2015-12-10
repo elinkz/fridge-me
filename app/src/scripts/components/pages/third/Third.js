@@ -9,7 +9,7 @@ class Third extends React.Component {
 					3
 				</h2>
 				<ul>
-					<li><Link to="/Second">Go back</Link></li>
+					<li><Link to="Second">Go back</Link></li>
         </ul>
 			</div>
 		)

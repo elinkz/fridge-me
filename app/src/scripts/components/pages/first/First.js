@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import BaseIngredientInput from '../components/BaseIngredientInput';
+import BaseIngredientInput from './BaseIngredientInput';
 
 class First extends React.Component {
 	render() {
@@ -9,7 +9,7 @@ class First extends React.Component {
 				<h2 className="view-1">1</h2>
 				<BaseIngredientInput />
 				<ul>
-          <li><Link to="/Second">Go to view #2</Link></li>
+          <li><Link to="Second">Go to view #2</Link></li>
         </ul>
 			</div>
 		)
