@@ -5,7 +5,6 @@ class SearchInput extends React.Component {
 		return (
 			<div>
 				<h2 className="view-2">Input Form</h2>
-
 				<input className="form-control" type="text" />
 			</div>
 		)

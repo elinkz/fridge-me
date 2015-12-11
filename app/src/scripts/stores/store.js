@@ -1,10 +1,34 @@
 import {dispatch, register} from '../dispatchers/dispatcher';
 import AppConstants from '../constants/constants';
 import { EventEmitter } from 'events';
+import Rebase from 're-base';
 
 const CHANGE_EVENT = 'change'
 
 var _catalog = []; // Ändra till relevant namndata
+let baseCatalog = []; 
+let recepieId = 0;
+
+let ref = new Firebase('https://fridge-me.firebaseio.com/');
+
+// Baseingredients from database
+ref.on("value", function(snapshot) {
+  let totalRecepies = snapshot.val().length;
+  let baseIngredient = [];
+  for (let i = 0; i < totalRecepies; i++) {
+
+    baseCatalog[i] = new Firebase('https://fridge-me.firebaseio.com/'+recepieId+'/');
+    let thisbase = baseCatalog[i];
+
+    thisbase.on("value", function(snap) {
+      
+      baseIngredient.push(snap.val().baseingredient);
+
+    });
+    recepieId++
+  };
+  console.log('baseingredient: ' + baseIngredient);
+});
 
 for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data från db
   _catalog.push( {
@@ -34,12 +58,13 @@ const _addItem = ( item ) => {
   else {
     console.log('Ingredient already exist'); // Finns redan tillagt 
   }
+  console.log(_ingredients);
 };
 
 const _ingredientsTotal = ( qty = 0 ) => { // Räkna ut antal ingredienser, 
   _ingredients.forEach( ingredient  => {
     qty += ingredient.qty;
-    console.log(qty);
+    console.log('qty', qty);
   } );
   return {qty}; 
 };
