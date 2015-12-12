@@ -3,7 +3,7 @@
     "recipe-id": 1,
     "title": "chicken-wok",
     "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "base-ingredient": "chicken",
+    "baseingredient": "chicken",
     "ingredients": [
     	{
     		"name": "tomato",
@@ -19,7 +19,7 @@
     "recipe-id": 2,
     "title": "meatballs",
     "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "base-ingredient": "beef",
+    "baseingredient": "beef",
     "ingredients": [
     	{
     		"name": "tomato",
@@ -35,7 +35,7 @@
     "recipe-id": 3,
     "title": "vego-salad",
     "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "base-ingredient": "vego",
+    "baseingredient": "vego",
     "ingredients": [
     	{
     		"name": "tomato",
@@ -51,7 +51,7 @@
     "recipe-id": 4,
     "title": "pulled pork",
     "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "base-ingredient": "pork",
+    "baseingredient": "pork",
     "ingredients": [
     	{
     		"name": "tomato",

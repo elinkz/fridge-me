@@ -1,6 +1,6 @@
 import React from 'react';
 import RadioGroup from '../../radioconfig.js';
-
+import Rebase from 're-base';
 
 'use strict';
 
