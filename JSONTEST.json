@@ -1,0 +1,82 @@
+{
+	"chicken-wok" : {
+		"recipe-id": 1,
+        "title": "chicken-wok",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "chicken",
+        "ingredients": [
+        	{
+        		"name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
+	},
+	"meatballs": {
+    	"recipe-id": 2,
+        "title": "meatballs",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "beef",
+        "ingredients": [
+        	{
+        		"name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
+	},
+	"vego-salad" : {
+		"recipe-id": 3,
+        "title": "vego-salad",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "vego",
+        "ingredients": [
+        	{
+        		"name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
+	},
+	"pulled pork" : {
+		"recipe-id": 4,
+        "title": "pulled pork",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "pork",
+        "ingredients": [
+        	{
+        		"name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
+	},
+	"grilled pork" : {
+		"recipe-id": 5,
+        "title": "grilled pork",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "pork",
+        "ingredients": [
+        	{
+        		"name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
+	}
+}

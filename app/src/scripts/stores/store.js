@@ -1,3 +1,4 @@
+import React from 'react';
 import {dispatch, register} from '../dispatchers/dispatcher';
 import AppConstants from '../constants/constants';
 import { EventEmitter } from 'events';
@@ -5,30 +6,39 @@ import Rebase from 're-base';
 
 const CHANGE_EVENT = 'change'
 
-var _catalog = []; // Ändra till relevant namndata
-let baseCatalog = []; 
-let recepieId = 0;
+let _catalog = [], // Ändra till relevant namndata
+  recepieData = [], // all data from recepie
+  recepieTitle = '', // recepie ID e.g "chickenwok"
+  description = '', // recepie description
+  baseIngredient = '', // the baseingredient
+  ingredients = [], // Ingredients to the recepie
+  ref = new Firebase("https://fridge-me.firebaseio.com/"),
+  ingredientsData = [],
+  baseIngredientsData = [];
 
-let ref = new Firebase('https://fridge-me.firebaseio.com/');
+// get recepies from database
+ref.on("value", function(allSnapshot) {
+  allSnapshot.forEach(function(snapshot) {
+    var data = snapshot.val();
 
-// Baseingredients from database
-ref.on("value", function(snapshot) {
-  let totalRecepies = snapshot.val().length;
-  let baseIngredient = [];
-  for (let i = 0; i < totalRecepies; i++) {
+    recepieTitle = data.title;  // e.g "chicken-wok"
+    baseIngredient = data.baseingredient;  // e.g. "chicken"
+    description = data.description; // same as -> snapshot.child("description").val();  // e.g. "this is a wok blablabla"
+    ingredients = data.ingredients;  // e.g. "chickenWok"
 
-    baseCatalog[i] = new Firebase('https://fridge-me.firebaseio.com/'+recepieId+'/');
-    let thisbase = baseCatalog[i];
+    // push every value to "recepieData"-array 
+    recepieData.push(data);
+    ingredientsData.push(ingredients);
+    baseIngredientsData.push(baseIngredient);
+  });
+  // console.log(allSnapshot.val());
+  console.log('ingredients: ',ingredientsData);
+  console.log('recepie data: ',recepieData);
+  console.log('baseingredients: ',baseIngredientsData);
 
-    thisbase.on("value", function(snap) {
-      
-      baseIngredient.push(snap.val().baseingredient);
-
-    });
-    recepieId++
-  };
-  console.log('baseingredient: ' + baseIngredient);
 });
+
+console.log('outside loop:',recepieData);
 
 for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data från db
   _catalog.push( {
@@ -39,6 +49,7 @@ for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data frå
   } );
 }
 
+console.log('catalog', _catalog);
 var _ingredients = []; // Ändra till relevant namndata
 
 const _removeItem = ( item ) => {
