@@ -7,49 +7,59 @@ import Rebase from 're-base';
 const CHANGE_EVENT = 'change'
 
 let _catalog = [], // Ändra till relevant namndata
-  recepieData = [], // all data from recepie
-  recepieTitle = '', // recepie ID e.g "chickenwok"
-  description = '', // recepie description
-  baseIngredient = '', // the baseingredient
-  ingredients = [], // Ingredients to the recepie
+  recipeData = [], // All data from recipe
+  recipeTitle = '', // recipe ID e.g "chickenwok"
+  description = '', // recipe description
+  baseIngredient = '', // Baseingredient
+  ingredients = [], // Ingredients to the recipe
   ref = new Firebase("https://fridge-me.firebaseio.com/"),
-  ingredientsData = [],
+  ingredientsData = [], 
   baseIngredientsData = [];
 
-// get recepies from database
+// Get recipes from database
 ref.on("value", function(allSnapshot) {
   allSnapshot.forEach(function(snapshot) {
     var data = snapshot.val();
 
-    recepieTitle = data.title;  // e.g "chicken-wok"
+    recipeTitle = data.title;  // e.g "chicken-wok"
     baseIngredient = data.baseingredient;  // e.g. "chicken"
     description = data.description; // same as -> snapshot.child("description").val();  // e.g. "this is a wok blablabla"
     ingredients = data.ingredients;  // e.g. "chickenWok"
 
-    // push every value to "recepieData"-array 
-    recepieData.push(data);
+    recipeData.push(data); // push every value to "recipeData"-array 
     ingredientsData.push(ingredients);
     baseIngredientsData.push(baseIngredient);
   });
   // console.log(allSnapshot.val());
-  console.log('ingredients: ',ingredientsData);
-  console.log('recepie data: ',recepieData);
-  console.log('baseingredients: ',baseIngredientsData);
+  //console.log('ingredients: ', ingredientsData);
+  //console.log('recipe data: ', recipeData);
+  console.log('baseingredients: ', baseIngredientsData);
+
+  // Output all ingredients individually for view 2
+  for(let i = 0; i < ingredientsData.length; i++) { 
+    let ingredient = ingredientsData[i];
+    for(let j = 0; j < ingredient.length; j++) {
+      console.log('ingredient ', ingredient[j]['name']);
+      _catalog.push( {
+        'id': ingredient[j]['name'],
+        'title': ingredient[j]['name'],
+      });
+    }
+  }
+  
+  console.log('catalog', _catalog);
 
 });
 
-console.log('outside loop:',recepieData);
-
-for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data från db
+/*for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data från db
   _catalog.push( {
     'id': 'Ingredient' + i,
     'title': 'Ingredient #' + i,
     'summary': 'A great ingredient',
     'description': 'Lorem ipsum dolor sit amet.'
   } );
-}
+}*/
 
-console.log('catalog', _catalog);
 var _ingredients = []; // Ändra till relevant namndata
 
 const _removeItem = ( item ) => {
@@ -67,7 +77,7 @@ const _addItem = ( item ) => {
     _ingredients.push( Object.assign( {qty: 1}, item ) );
   }
   else {
-    console.log('Ingredient already exist'); // Finns redan tillagt 
+    console.log('Ingredient already added'); // Finns redan tillagt 
   }
   console.log(_ingredients);
 };
@@ -106,6 +116,10 @@ const AppStore = Object.assign(EventEmitter.prototype, {
 
   getCartTotals(){
     return _ingredientsTotal();
+  },
+
+  getBaseIngredients(){
+    return baseIngredientsData;
   },
 
   dispatcherIndex: register( function( action ){

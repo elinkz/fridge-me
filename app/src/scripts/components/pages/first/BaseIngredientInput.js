@@ -1,6 +1,8 @@
 import React from 'react';
-import RadioGroup from '../../radioconfig.js';
 import Rebase from 're-base';
+import Store from '../../../stores/store';
+import BaseIngredientRadioButton from './BaseIngredientRadioButton';
+import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 'use strict';
 
@@ -15,7 +17,7 @@ let BaseIngredientInput = React.createClass({
 
   render() {
     return (
-      <RadioGroup
+      <BaseIngredientRadioButton
         name="fruit"
         selectedValue={this.state.selectedValue}
         onChange={this.handleChange}>
@@ -33,7 +35,7 @@ let BaseIngredientInput = React.createClass({
             </label>
           </div>
         )}
-      </RadioGroup>
+      </BaseIngredientRadioButton>
     );
   }
 });
