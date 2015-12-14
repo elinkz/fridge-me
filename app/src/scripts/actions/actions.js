@@ -13,5 +13,11 @@ export default {
       actionType: AppConstants.REMOVE_ITEM, 
       item
     })
+  },
+  setBaseIngredient( baseIngredient ){
+    dispatch({
+      actionType: AppConstants.SET_BASE_INGREDIENT, 
+      baseIngredient
+    })
   }
 }

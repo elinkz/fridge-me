@@ -2,7 +2,6 @@ import React from 'react';
 import Rebase from 're-base';
 import Store from '../../../stores/store';
 import BaseIngredientRadioButton from './BaseIngredientRadioButton';
-import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 'use strict';
 
