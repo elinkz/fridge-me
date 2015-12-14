@@ -6,15 +6,17 @@ import Rebase from 're-base';
 
 const CHANGE_EVENT = 'change'
 
-let _catalog = [], // Ändra till relevant namndata
+let _catalog = [], 
+  _baseIngredients = [],
   recipeData = [], // All data from recipe
   recipeTitle = '', // recipe ID e.g "chickenwok"
   description = '', // recipe description
   baseIngredient = '', // Baseingredient
   ingredients = [], // Ingredients to the recipe
-  ref = new Firebase("https://fridge-me.firebaseio.com/"),
   ingredientsData = [], 
-  baseIngredientsData = [];
+  baseIngredientsData = [],
+  ref = new Firebase("https://fridge-me.firebaseio.com/");
+
 
 // Get recipes from database
 ref.on("value", function(allSnapshot) {
@@ -30,16 +32,14 @@ ref.on("value", function(allSnapshot) {
     ingredientsData.push(ingredients);
     baseIngredientsData.push(baseIngredient);
   });
-  // console.log(allSnapshot.val());
-  //console.log('ingredients: ', ingredientsData);
-  //console.log('recipe data: ', recipeData);
-  console.log('baseingredients: ', baseIngredientsData);
 
-  // Output all ingredients individually for view 2
-  for(let i = 0; i < ingredientsData.length; i++) { 
-    let ingredient = ingredientsData[i];
+  for(let i = 0; i < recipeData.length; i++) { 
+    let ingredient = recipeData[i]['ingredients']
+    let baseIngredient = recipeData[i]['baseingredient']
+    _baseIngredients.push( {
+      'name': baseIngredient // Something more than "name" is needed here (maybe id of some kind)
+    });
     for(let j = 0; j < ingredient.length; j++) {
-      console.log('ingredient ', ingredient[j]['name']);
       _catalog.push( {
         'id': ingredient[j]['name'],
         'title': ingredient[j]['name'],
@@ -47,20 +47,12 @@ ref.on("value", function(allSnapshot) {
     }
   }
   
-  console.log('catalog', _catalog);
+  AppStore.emitChange();
 
 });
 
-/*for ( let i = 1; i < 9; i++ ) { // Hitta en lösning för att pusha in data från db
-  _catalog.push( {
-    'id': 'Ingredient' + i,
-    'title': 'Ingredient #' + i,
-    'summary': 'A great ingredient',
-    'description': 'Lorem ipsum dolor sit amet.'
-  } );
-}*/
-
-var _ingredients = []; // Ändra till relevant namndata
+let _ingredients = []; // Ändra till relevant variabelnamn
+let _baseIngredientsArray = [];
 
 const _removeItem = ( item ) => {
   _ingredients.splice( _ingredients.findIndex( i => i === item ), 1 );
@@ -70,6 +62,9 @@ const _findIngredient = ( item ) => {
   return _ingredients.find( ingredient => ingredient.id === item.id )
 };
 
+const _findBaseIngredient = ( item ) => {
+  return _baseIngredientsArray.find( baseIngredient => baseIngredient.name === item.name )
+};
 
 const _addItem = ( item ) => {
   const ingredient = _findIngredient( item );
@@ -90,7 +85,13 @@ const _ingredientsTotal = ( qty = 0 ) => { // Räkna ut antal ingredienser,
   return {qty}; 
 };
 
-const AppStore = Object.assign(EventEmitter.prototype, {
+let _currentBaseIngredient = {};
+
+const _setCurrentBaseIngredient = ( baseIngredient ) => {
+  _currentBaseIngredient = baseIngredient
+};
+
+const AppStore = Object.assign({}, EventEmitter.prototype, {
   emitChange(){
     this.emit( CHANGE_EVENT )
   },
@@ -112,14 +113,20 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     return _catalog.map(item => {
       return Object.assign( {}, item, _ingredients.find( cItem => cItem.id === item.id))
     })
-  },
+  },   
 
+  getBaseIngredient(){
+    return _baseIngredients.map(baseIngredients => {
+      return Object.assign( {}, baseIngredients, _baseIngredientsArray.find( cBaseIngredients => cBaseIngredients.name === baseIngredients.name))
+    })
+  },  
+
+  getCurrentBaseIngredient(){
+    return _currentBaseIngredient;
+  },    
+  
   getCartTotals(){
     return _ingredientsTotal();
-  },
-
-  getBaseIngredients(){
-    return baseIngredientsData;
   },
 
   dispatcherIndex: register( function( action ){
@@ -129,6 +136,9 @@ const AppStore = Object.assign(EventEmitter.prototype, {
         break;
       case AppConstants.REMOVE_ITEM:
         _removeItem( action.item );
+        break;
+      case AppConstants.SET_BASE_INGREDIENT:
+        _setCurrentBaseIngredient( action.baseIngredient);
         break;
     }
 
