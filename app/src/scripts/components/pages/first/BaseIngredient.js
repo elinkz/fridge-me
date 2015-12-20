@@ -11,6 +11,7 @@ const BaseIngredient = (props) => {
 	let baseIngredients = props.baseIngredients.map( baseIngredient => {
 		return <BaseIngredientItem key={ baseIngredient.name } baseIngredient={ baseIngredient } />
 	});
+
 	return (
 		<div className="row">
 			<h1>Base Ingredients</h1>
@@ -19,6 +20,5 @@ const BaseIngredient = (props) => {
 		</div>
 	)
 }
-
 
 export default StoreWatchMixin( BaseIngredient, getBaseIngredient ); 
