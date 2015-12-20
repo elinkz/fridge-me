@@ -1,82 +1,92 @@
 {
 	"chicken-wok" : {
-		"recipe-id": 1,
-    "title": "chicken-wok",
-    "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "baseingredient": "chicken",
-    "ingredients": [
-    	{
-    		"name": "tomato",
-    		"quantity": 40
-    	},
-    	{
-    		"name": "onion",
-    		"quantity": 2
-    	}
-    ]
+		"recipeID": 1,
+        "title": "Chicken Wok",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "chicken",
+        "ingredients": [
+        	{
+        		"ingredientID": 1,
+                "name": "tomato",
+        		"quantity": 40
+        	},
+        	{
+                "ingredientID": 2,
+        		"name": "onion",
+        		"quantity": 2
+        	}
+        ]
 	},
 	"meatballs": {
-    "recipe-id": 2,
-    "title": "meatballs",
-    "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "baseingredient": "beef",
-    "ingredients": [
-    	{
-    		"name": "eggs",
-    		"quantity": 7
-    	},
-    	{
-    		"name": "basil",
-    		"quantity": 5
-    	}
-    ]
+        "recipeID": 2,
+        "title": "Meatballs",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "beef",
+        "ingredients": [
+        	{
+                "ingredientID": 3,
+        		"name": "eggs",
+        		"quantity": 7
+        	},
+        	{
+                "ingredientID": 4,
+        		"name": "basil",
+        		"quantity": 5
+        	}
+        ]
 	},
 	"vego-salad" : {
-		"recipe-id": 3,
-    "title": "vego-salad",
-    "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "baseingredient": "vego",
-    "ingredients": [
-    	{
-    		"name": "flour",
-    		"quantity": 8
-    	},
-    	{
-    		"name": "butter",
-    		"quantity": 30
-    	}
-    ]
+		"recipeID": 3,
+        "title": "Vego salad",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "vego",
+        "ingredients": [
+        	{
+                "ingredientID": 5,
+        		"name": "flour",
+        		"quantity": 8
+        	},
+        	{
+                "ingredientID": 6,
+        		"name": "butter",
+        		"quantity": 30
+        	}
+        ]
 	},
 	"pulled pork" : {
-		"recipe-id": 4,
-    "title": "pulled pork",
-    "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "baseingredient": "pork",
-    "ingredients": [
-    	{
-    		"name": "grapefruit",
-    		"quantity": 10
-    	},
-    	{
-    		"name": "garlic",
-    		"quantity": 22
-    	}
-    ]
+		"recipeID": 4,
+        "title": "Pulled pork",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "pork",
+        "ingredients": [
+        	{
+                "ingredientID": 9,
+                "name": "cucumber",
+                "quantity": 20
+            },
+        	{
+                "ingredientID": 8,
+        		"name": "garlic",
+        		"quantity": 22
+        	}
+        ]
 	},
 	"grilled pork" : {
-		"recipe-id": 5,
-    "title": "grilled pork",
-    "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
-    "baseingredient": "pork",
-    "ingredients": [
-    	{
-    		"name": "cucumber",
-    		"quantity": 41
-    	},
-    	{
-    		"name": "apples",
-    		"quantity": 3
-    	}
-    ]
+		"recipeID": 5,
+        "title": "Grilled pork",
+        "description": "Great basic Chicken Teriyaki recipe. Why use the bottled stuff when the make-it-yourself marinade is easy and so much tastier?",
+        "baseingredient": "pork",
+        "ingredients": [
+        	{
+                "ingredientID": 9,
+        		"name": "cucumber",
+        		"quantity": 41
+        	},
+        	{
+                "ingredientID": 10,
+        		"name": "apples",
+        		"quantity": 3
+        	}
+        ]
 	}
 }

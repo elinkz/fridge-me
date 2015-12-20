@@ -15,6 +15,7 @@ let _catalog = [],
   ingredients = [], // Ingredients to the recipe
   ingredientsData = [], 
   baseIngredientsData = [],
+  testBajs = [],
   ref = new Firebase("https://fridge-me.firebaseio.com/");
 
 
@@ -34,22 +35,47 @@ ref.on("value", function(allSnapshot) {
   });
 
   for(let i = 0; i < recipeData.length; i++) { 
-    let ingredient = recipeData[i]['ingredients']
-    let baseIngredient = recipeData[i]['baseingredient']
+    let ingredient = recipeData[i]['ingredients'],
+      baseIngredient = recipeData[i]['baseingredient'],
+      recipeId = recipeData[i]['recipeID'];
+
     _baseIngredients.push( {
+      'id': recipeId,
       'name': baseIngredient // Something more than "name" is needed here (maybe id of some kind)
     });
+
     for(let j = 0; j < ingredient.length; j++) {
       _catalog.push( {
-        'id': ingredient[j]['name'],
+        'recipeId': recipeId,
+        'id': ingredient[j]['ingredientID'],
         'title': ingredient[j]['name'],
       });
     }
   }
-  
+
   AppStore.emitChange();
 
 });
+
+let db = new Firebase('https://fridge-me.firebaseio.com/')
+let base = 'pork';
+    // här ".equalTo('pork')" ska vi på något sätt trycka in 
+    // currentbaseingredient för att få ut rätt ingredienser
+    // och så kan vi trycka in alla ingredienser i _catalog
+  db.orderByChild("baseingredient").equalTo(base).on("child_added", function(snapshot) {
+  
+  var igData = snapshot.val();
+  let ig = igData.ingredients;
+  for(let j = 0; j < ig.length; j++) {
+    let ingredientt = ig[j];
+    testBajs.push({
+      'ingredient': ingredientt['name']
+    })
+  }
+
+  console.log(testBajs);
+
+})
 
 let _ingredients = []; // Ändra till relevant variabelnamn
 let _baseIngredientsArray = [];
