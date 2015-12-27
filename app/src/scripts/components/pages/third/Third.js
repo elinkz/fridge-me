@@ -5,11 +5,11 @@ class Third extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<h2 className="view-3">
-					3
+				<h2 className="heading-instruction">
+					Generated recipes: 
 				</h2>
 				<ul>
-					<li><Link to="Second">Go back</Link></li>
+					<li className="next-step"><Link to="Second">Go back</Link></li>
         </ul>
 			</div>
 		)

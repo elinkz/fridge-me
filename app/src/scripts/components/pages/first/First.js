@@ -12,10 +12,9 @@ class First extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<h2 className="view-1">{this.props.currentBaseIngredient.name}</h2>
-					<BaseIngredient />
+				<BaseIngredient />
 				<ul>
-          <li><Link to="Second">Go to view #2</Link></li>
+          <li className="next-step"><Link to="Second">Next Step</Link></li>
         </ul>
 			</div>
 		)

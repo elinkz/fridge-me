@@ -8,15 +8,20 @@
 /* _module default */
 @include layout-default {
   // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
-  
+  .heading-instruction {
+    text-align: center;
+    margin: 20px;
+    font-weight: 300;
+  }
+
   .module {
 		margin-top: 21%;
   }
 
   .main-module {
   	background-color: rgba(255,255,255,0.85);
-  	padding: 20px;
-  	max-width: 700px;
+  	padding: 45px;
+  	max-width: 750px;
   	margin: 0 auto; 
   }
 }

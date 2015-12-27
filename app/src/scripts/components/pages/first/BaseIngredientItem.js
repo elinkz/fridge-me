@@ -5,21 +5,18 @@ import BaseIngredientButton from './BaseIngredientButton';
 
 class BaseIngredientItem extends React.Component {
   _onClick () {
-    Actions.setBaseIngredient(this.props.baseIngredient)
+    Actions.setBaseIngredient( this.props.baseIngredient )
   }
   render () {
-    const itemStyle = {
-      borderBottom: '1px solid #ccc',
-      paddingBottom: 15
-    }
     return (
-      <div className="col-xs-6 col-sm-4 col-md-3" style={itemStyle}>
-        <div className="btn-group">
-          <BaseIngredientButton onClick={this._onClick.bind(this)} txt={ this.props.baseIngredient.name } />
-        </div>
-      </div>
+      <BaseIngredientButton isChosen={this.props.isChosen} onClick={ this._onClick.bind(this)} txt={ this.props.baseIngredient.name } />
     )
   }
 }
+
+BaseIngredientItem.propTypes = { 
+    baseIngredient: React.PropTypes.object.isRequired,
+    isChosen: React.PropTypes.bool
+  }
 
 export default BaseIngredientItem;
