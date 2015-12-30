@@ -4,19 +4,23 @@ import BaseIngredientItem from './BaseIngredientItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 function getBaseIngredient(){
-	return {baseIngredients: Store.getBaseIngredient()}
+	return {
+		baseIngredients: Store.getBaseIngredient(),
+		currentBaseIngredient: Store.getCurrentBaseIngredient()
+	}
 }
 
 const BaseIngredient = (props) => {
 	let baseIngredients = props.baseIngredients.map( baseIngredient => {
-		return <BaseIngredientItem key={ baseIngredient.name } baseIngredient={ baseIngredient } />
+		return <BaseIngredientItem isChosen={ baseIngredient.name === props.currentBaseIngredient.name } key={ baseIngredient.name } baseIngredient={ baseIngredient } />
 	});
 
 	return (
-		<div className="row">
-			<h1>Base Ingredients</h1>
-			{ baseIngredients } 
-			{/*<BaseIngredientItem key={ baseIngredient.name } baseIngredient={ baseIngredient } />*/}
+		<div className="base-ingredients-group">
+			<h2 className="heading-instruction">Please choose a base ingredient below.</h2>
+			<div className="base-ingredient-buttons">
+				{ baseIngredients } 
+			</div>
 		</div>
 	)
 }

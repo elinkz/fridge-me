@@ -9,9 +9,11 @@ $grid-col-padding: 15px;
   .container-fluid { width: 100%; }
 
   .container {
-    max-width: $site-max-width;
+    /*max-width: $site-max-width;*/
+    max-width: 750px;
     margin-right: auto;
     margin-left: auto;
+    font-family: 'Oxygen', sans-serif;
   }
 
   .row {
