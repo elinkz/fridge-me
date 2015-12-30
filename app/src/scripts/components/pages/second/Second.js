@@ -4,6 +4,7 @@ import SearchInput from './SearchInput';
 import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Catalog from './Catalog';
+import BaseIngredient from '../first/BaseIngredient';
 
 function setProps(){
 	return {currentBaseIngredient: Store.getCurrentBaseIngredient()}
@@ -33,9 +34,4 @@ Second.propTypes = {
 	currentBaseIngredient: React.PropTypes.object
 }
 
-Second.defaultProps = {
-	currentBaseIngredient: {}
-}
-
 export default StoreWatchMixin( Second, setProps ); 
-

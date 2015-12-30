@@ -25,5 +25,4 @@ const BaseIngredient = (props) => {
 	)
 }
 
-
 export default StoreWatchMixin( BaseIngredient, getBaseIngredient ); 
