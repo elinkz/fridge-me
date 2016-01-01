@@ -6,7 +6,7 @@ import Rebase from 're-base';
 
 const CHANGE_EVENT = 'change'
 
-let _catalog = [], 
+/*let _catalog = [], 
   _baseIngredients = [],
   recipeData = [], // All data from recipe
   recipeTitle = '', // recipe ID e.g "chickenwok"
@@ -15,12 +15,23 @@ let _catalog = [],
   ingredients = [], // Ingredients to the recipe
   ingredientsData = [], 
   baseIngredientsData = [],
-  testBajs = [],
-  ref = new Firebase("https://fridge-me.firebaseio.com/");
+  ref = new Firebase("https://fridge-me.firebaseio.com/");*/
+
+  let _catalog = [], 
+  _baseIngredients = [],
+  recipeData = [], 
+  recipeTitle = '', 
+  description = '', 
+  baseIngredient = '', 
+  ingredients = [], 
+  ingredientsData = [], 
+  baseIngredientsData = [],
+  recipesRef = new Firebase("https://fridge-me-2.firebaseio.com/recipes"),
+  ingredientsRef = new Firebase("https://fridge-me-2.firebaseio.com/ingredients");
 
 
 // Get recipes from database
-ref.on("value", function(allSnapshot) {
+/*ref.on("value", function(allSnapshot) {
   allSnapshot.forEach(function(snapshot) {
     var data = snapshot.val();
 
@@ -55,9 +66,26 @@ ref.on("value", function(allSnapshot) {
 
   AppStore.emitChange();
 
-});
+});*/
 
-let db = new Firebase('https://fridge-me.firebaseio.com/')
+// Get recipes from database
+  recipesRef.orderByChild('title').on('child_added', function(snapshot){
+    console.log('Recipte Title ' + snapshot.key() + ' ' + snapshot.val().title);
+  });
+  
+  recipesRef.orderByChild('description').on('child_added', function(snapshot){
+    console.log('Desc ' + snapshot.key() + ' ' + snapshot.val().description);
+  });
+  
+  recipesRef.orderByChild('ingredients').on('child_added', function(snapshot){
+    console.log(snapshot.val().ingredients);
+  });
+
+
+
+// VAD ÄR DET HÄR UNDER?
+
+/*let db = new Firebase('https://fridge-me.firebaseio.com/')
 let base = 'pork';
     // här ".equalTo('pork')" ska vi på något sätt trycka in 
     // currentbaseingredient för att få ut rätt ingredienser
@@ -75,7 +103,7 @@ let base = 'pork';
 
   console.log(testBajs);
 
-})
+})*/
 
 let _ingredients = []; // Ändra till relevant variabelnamn
 let _baseIngredientsArray = [];
@@ -117,6 +145,17 @@ const _setCurrentBaseIngredient = ( baseIngredient ) => {
   _currentBaseIngredient = baseIngredient
 };
 
+let _recipes = [];
+function _setRecipes(recipes){
+  _recipes = recipes;
+}
+
+let _availableIngredients = [];
+function _setAvailableIngredients(availableIngredients){
+  _availableIngredients = availableIngredients;
+}
+
+
 const AppStore = Object.assign({}, EventEmitter.prototype, {
   emitChange(){
     this.emit( CHANGE_EVENT )
@@ -130,8 +169,16 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
     this.removeListener( CHANGE_EVENT, callback )
   },
 
+  getRecipes(){
+    return _recipes;
+  }, 
+
+  getAvailableIngredients(){
+    return _availableIngredients;
+  }, 
+
+
   getCart(){
-    console.log(_ingredients);
     return _ingredients;
   },
 
@@ -142,10 +189,8 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
   },   
 
   getBaseIngredient(){
-    return _baseIngredients.map(baseIngredients => {
-      return Object.assign( {}, baseIngredients, _baseIngredientsArray.find( cBaseIngredients => cBaseIngredients.name === baseIngredients.name))
-    })
-  },  
+    return _availableIngredients.filter(ingredient => ingredient.baseIngredient )
+  },
 
   getCurrentBaseIngredient(){
     return _currentBaseIngredient;
@@ -164,7 +209,13 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
         _removeItem( action.item );
         break;
       case AppConstants.SET_BASE_INGREDIENT:
-        _setCurrentBaseIngredient( action.baseIngredient);
+        _setCurrentBaseIngredient( action.baseIngredient );
+        break;
+      case AppConstants.GET_RECIPES_SUCCESS:
+        _setRecipes( action.recipes );
+        break;
+      case AppConstants.GET_AVAILABLE_INGREDIENTS_SUCCESS:
+        _setAvailableIngredients( action.availableIngredients );
         break;
     }
 

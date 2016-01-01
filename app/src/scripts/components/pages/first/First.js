@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Store from '../../../stores/store';
 import BaseIngredient from './BaseIngredient';
-import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
-
-function setProps(){
-	return {currentBaseIngredient: Store.getCurrentBaseIngredient()}
-}
 
 class First extends React.Component {
 	render() {
@@ -21,12 +15,4 @@ class First extends React.Component {
 	}
 };
 
-First.propTypes = {
-	currentBaseIngredient: React.PropTypes.object
-}
-
-First.defaultProps = {
-	currentBaseIngredient: {}
-}
-
-export default StoreWatchMixin( First, setProps ); 
+export default First;
