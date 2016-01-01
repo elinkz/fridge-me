@@ -3,9 +3,9 @@ import Store from '../../../stores/store';
 import BaseIngredientItem from './BaseIngredientItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
-function getBaseIngredient(){
+function getStoreVals(){
 	return {
-		baseIngredients: Store.getBaseIngredient(),
+		baseIngredients: Store.getBaseIngredients(),
 		currentBaseIngredient: Store.getCurrentBaseIngredient()
 	}
 }
@@ -25,4 +25,4 @@ const BaseIngredient = (props) => {
 	)
 }
 
-export default StoreWatchMixin( BaseIngredient, getBaseIngredient ); 
+export default StoreWatchMixin( BaseIngredient, getStoreVals ); 
