@@ -8,12 +8,17 @@ export default (props) => {
     paddingBottom: 15
   }
   function cartOnClick () {
-    Actions.addItem(props.item)
+    if (!props.active) {
+      Actions.addItem(props.item)
+    } else {
+      Actions.removeItem(props.item)
+    }
   }
   return (
     <div className="col-xs-6 col-sm-4 col-md-3" style={itemStyle}>
       <div className="btn-group">
         <CartButton
+          active={props.active}
           handler={ cartOnClick }
           txt={ props.item.name }
           />

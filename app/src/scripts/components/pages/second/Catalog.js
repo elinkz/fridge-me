@@ -9,7 +9,7 @@ function getCatalog(){
 
 const Catalog = (props) => {
 	let items = props.items.map( (item, i) => {
-		return <CatalogItem key={i} item={ item } />
+		return <CatalogItem active={!!Store.getItemInCart(item)} key={i} item={ item } />
 	});
 	return (
 		<div className="row">

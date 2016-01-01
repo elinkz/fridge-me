@@ -6,25 +6,24 @@ import Rebase from 're-base';
 
 const CHANGE_EVENT = 'change'
 
-let _ingredients = []; // Ändra till relevant variabelnamn
+let _cart = [];
 
 const _removeItem = ( item ) => {
-  _ingredients.splice( _ingredients.findIndex( i => i === item ), 1 );
+  _cart.splice( _cart.findIndex( i => i === item ), 1 );
+  console.log("Ingredients in cart after removal", _cart);
 };
 
-const _findIngredient = ( item ) => {
-  return _ingredients.find( ingredient => ingredient.id === item.id )
+const _getItemInCart = ( item ) => {
+  return _cart.find( ingredient => ingredient.name === item.name )
 };
 
 const _addItem = ( item ) => {
-  const ingredient = _findIngredient( item );
-  if ( !ingredient ) {
-    _ingredients.push( Object.assign( {qty: 1}, item ) );
+  if (!_getItemInCart( item )) {
+    _cart.push(item);
+  } else {
+    console.log('Ingredient already added');
   }
-  else {
-    console.log('Ingredient already added'); // Finns redan tillagt 
-  }
-  console.log(_ingredients);
+  console.log("Ingredients in cart after addition", _cart);
 };
 
 let _currentBaseIngredient = {};
@@ -67,8 +66,12 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
 
 
   getCart(){
-    return _ingredients;
+    return _cart;
   }, 
+
+  getItemInCart(item) {
+    return _getItemInCart(item);
+  },
 
   getBaseIngredients(){
     return _availableIngredients.filter(ingredient => ingredient.baseIngredient )
@@ -80,10 +83,6 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
 
   getCurrentBaseIngredient(){
     return _currentBaseIngredient;
-  },    
-  
-  getCartTotals(){
-    return { qty: _ingredients.length };
   },
 
   dispatcherIndex: register( function( action ){
