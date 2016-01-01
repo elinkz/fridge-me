@@ -7,14 +7,15 @@ export default (props) => {
     borderBottom: '1px solid #ccc',
     paddingBottom: 15
   }
+  function cartOnClick () {
+    Actions.addItem(props.item)
+  }
   return (
     <div className="col-xs-6 col-sm-4 col-md-3" style={itemStyle}>
       <div className="btn-group">
         <CartButton
-          handler={
-            Actions.addItem.bind(null, props.item)
-          }
-          txt={ props.item.title }
+          handler={ cartOnClick }
+          txt={ props.item.name }
           />
       </div>
     </div>

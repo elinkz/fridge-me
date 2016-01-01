@@ -8,7 +8,7 @@ class First extends React.Component {
 			<div className="main-module">
 				<BaseIngredient />
 				<ul>
-          <li className="next-step"><Link to="Second">Next Step</Link></li>
+          <li className="next-step"><Link to="/second">Next Step</Link></li>
         </ul>
 			</div>
 		)

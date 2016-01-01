@@ -74,6 +74,10 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
     return _availableIngredients.filter(ingredient => ingredient.baseIngredient )
   },
 
+  getCommonIngredients(){
+    return _availableIngredients.filter(ingredient => !ingredient.baseIngredient )
+  },
+
   getCurrentBaseIngredient(){
     return _currentBaseIngredient;
   },    
