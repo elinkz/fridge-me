@@ -22,7 +22,7 @@ class Second extends React.Component {
 				<SearchInput />
 				<Catalog />
 				<ul>
-          <li className="next-step"><Link to="Third">Next Step</Link></li>
+          <li className="next-step"><Link to="/third">Next Step</Link></li>
 					<li className="next-step"><Link to="/">Go back</Link></li>
         </ul>
 			</div>

@@ -4,12 +4,12 @@ import CatalogItem from './CatalogItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 function getCatalog(){
-	return {items: Store.getCatalog()}
+	return {items: Store.getCommonIngredients()}
 }
 
 const Catalog = (props) => {
-	let items = props.items.map( item => {
-		return <CatalogItem key={ item.id } item={ item } />
+	let items = props.items.map( (item, i) => {
+		return <CatalogItem active={!!Store.getItemInCart(item)} key={i} item={ item } />
 	});
 	return (
 		<div className="row">
