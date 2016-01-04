@@ -3,6 +3,7 @@
 
 /* _buttons default */
 @include layout-default {
+
 	.base-ingredient-buttons {
 		display: table;
 		margin: 0 auto;
@@ -14,7 +15,7 @@
   	border-radius: 50%;
   	margin: 13px;
     outline: none;
-    background-color: #4A9379;
+    background-color: #D69A79;
     color: white;
     text-transform: uppercase;
     font-weight: 700;
@@ -22,8 +23,9 @@
   }
 
   .btn-base-ingredient-chosen {
-    border: 3px solid #44524A;
+    background-color: $color-orange;
     outline: none;
+    animation: btn-animation 1s ease;
   }
 
   .next-step {
@@ -37,11 +39,16 @@
       font-size: 16px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      transition: border .3s;
+      transition: background-color .3s;
     }
     a:hover {
       text-decoration: none;
       color: white;
-      background-color: #313131;
+      background-color: #000000;
+      border: 2px solid #000000;
+      transition: border .3s;
+      transition: background-color .3s;
     }
   }
 }
@@ -53,6 +60,12 @@
 
 /* _buttons medium */
 @include layout-medium {
+
+  @keyframes btn-animation {
+    0%   { opacity: .8; }
+    50%  { opacity: .9; }
+    100% { opacity: 1; }
+  }
 
 }
 

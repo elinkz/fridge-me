@@ -1,0 +1,85 @@
+/* _catalog default */
+@include layout-default {
+  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
+	.catalog {
+		display: table;
+		width: 90%;
+		text-align: center;
+		margin: 60px auto;
+		background-color: rgba(195, 88, 36, 0.84);
+		padding: 35px 0;
+	}
+
+	.selected-base-ingredient {
+    text-align: center;
+    margin: 26px auto 0 auto;
+    height: 65px;
+    width: 90%;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: $color-orange;
+    border-bottom: 1px solid $color-orange;
+	}
+
+	.heading-instruction-2 {
+		margin-top: 0;
+	}
+
+	.btn-catalog {
+		outline: none;
+		box-shadow: none;
+		background: none;
+		text-transform: uppercase;
+		font-family: 'Roboto Slab', sans-serif;
+		font-size: 1.2em;
+		font-weight: 700;
+		color: #86411F;
+		transition: all .3s ease;
+	}
+
+	.btn-catalog:before {
+		font-size: 18px;
+    content: "+";
+    left: -15px;
+    position: absolute;
+    top: -1px;
+    font-weight: 500;
+    color: #86411F;
+    transition: all .3s ease;
+	}
+
+	.active {
+		outline: 0;
+		box-shadow: none;
+		color: rgba(232, 223, 220, .9);
+		transition: all .3s ease;
+	}
+
+	.active:before {
+    transform: rotate(45deg);
+    color: rgba(232,223,220,.9);
+    transition: all .3s ease;
+ }
+
+}
+
+/* _catalog small */
+@include layout-small {
+}
+
+/* _catalog medium */
+@include layout-medium {
+
+}
+
+/* _catalog medium-and-above */
+@include layout-medium-and-above {
+
+}
+
+/* _catalog large */
+@include layout-large {
+
+}

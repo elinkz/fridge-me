@@ -1,0 +1,25 @@
+/* _footer default */
+@include layout-default {
+  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
+  
+}
+
+/* _footer small */
+@include layout-small {
+
+}
+
+/* _footer medium */
+@include layout-medium {
+
+}
+
+/* _footer medium-and-above */
+@include layout-medium-and-above {
+
+}
+
+/* _footer large */
+@include layout-large {
+
+}

@@ -12,7 +12,7 @@ const Catalog = (props) => {
 		return <CatalogItem active={!!Store.getItemInCart(item)} key={i} item={ item } />
 	});
 	return (
-		<div className="row">
+		<div className="catalog">
 			{ items }
 		</div>
 	)
