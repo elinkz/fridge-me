@@ -10,8 +10,7 @@ export default (props) => {
           txt="x"
           handler={Actions.removeItem.bind(null, props.item )} />
       </td>
-      <td>{props.item.title}</td>
-      <td>{props.item.qty}</td>
+      <td>{props.item.name}</td>
   	</tr>
 	)
 }

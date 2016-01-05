@@ -1,36 +1,36 @@
 import React from 'react';
 import Store from '../../../stores/store';
-import CartItem from './CartItem';
 import RecipesItem from './RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
-const ingredients = () => {
-  return { items: Store.getCart() }
+const recipes = () => {
+  return { recipes: Store.getRecipes() }
 }
 
-const Cart = ( props ) => {
-  var items = props.items.map( ( item, i ) => {
+const Recipes = ( props ) => {
+  var recipes = props.recipes.map( ( recipes, i ) => {
     return (
-      <CartItem
-          key={i}
-          item={item}/>
+      <RecipesItem
+        key={i}
+        recipe={recipes}/>
       )
   } );
   return (
     <div>
-      <h1>Cart</h1>
+      <h1>Recipes</h1>
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>Item</th>
+            <th>Recipe</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
-          {items}
+          {recipes}
         </tbody>
       </table>
     </div>
   );
 }
 
-export default StoreWatchMixin(Cart,ingredients);
+export default StoreWatchMixin(Recipes,recipes);
