@@ -15,8 +15,8 @@ class BaseIngredientItem extends React.Component {
 }
 
 BaseIngredientItem.propTypes = { 
-    baseIngredient: React.PropTypes.object.isRequired,
-    isChosen: React.PropTypes.bool
-  }
+  baseIngredient: React.PropTypes.object.isRequired,
+  isChosen: React.PropTypes.bool
+}
 
 export default BaseIngredientItem;
