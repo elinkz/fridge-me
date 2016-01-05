@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 import Actions from '../actions/actions';
 
 export default class AppTemplate extends React.Component{
@@ -13,6 +14,7 @@ export default class AppTemplate extends React.Component{
 	    <div className="container">
 	      <Header></Header>
 	      {this.props.children}
+	      <Footer></Footer>
 	    </div>
 	  )
   }

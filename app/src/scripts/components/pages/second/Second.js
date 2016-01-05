@@ -13,18 +13,16 @@ class Second extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<div className="selected-base-ingredient">{this.props.currentBaseIngredient.name}</div>
+				<div className="selected-base-ingredient"><p>{this.props.currentBaseIngredient.name}</p></div>
 				<h2 className="heading-instruction heading-instruction-2">
 					<br />
 					Select some more ingredients.
 				</h2>
-				<Catalog />
-				<div className="footer">
-					<ul>
+				<Catalog /> 
+				{ /*this.props.currentBaseIngredient.name && <ul>
 	          <li className="next-step"><Link to="/third">Next Step</Link></li>
 						<li className="next-step"><Link to="/">Go back</Link></li>
-	        </ul>
-				</div>
+        </ul> */}
 			</div>
 		)
 	}

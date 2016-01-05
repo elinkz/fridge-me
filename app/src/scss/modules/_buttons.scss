@@ -6,7 +6,8 @@
 
 	.base-ingredient-buttons {
 		display: table;
-		margin: 0 auto;
+		margin: 50px auto;
+    width: auto;
 	}
 
   .btn-base-ingredient {
@@ -15,33 +16,40 @@
   	border-radius: 50%;
   	margin: 13px;
     outline: none;
-    background-color: #D69A79;
+    background-color: #4F3831;
     color: white;
     text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  .btn-base-ingredient:hover {
+    background-color: $color-orange;
+    transition: all .3s ease; 
   }
 
   .btn-base-ingredient-chosen {
     background-color: $color-orange;
     outline: none;
-    animation: btn-animation 1s ease;
+    transition: all .3s ease;
   }
+
 
   .next-step {
     text-align: center;
-    margin-top: 30px;
+    margin: 30px;
     a {
       color: #313131;
       border: 2px solid #313131;
       padding: 12px 30px;
-      font-weight: 500;
+      font-weight: 700;
       font-size: 16px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       transition: border .3s;
       transition: background-color .3s;
     }
+
     a:hover {
       text-decoration: none;
       color: white;
@@ -50,22 +58,27 @@
       transition: border .3s;
       transition: background-color .3s;
     }
+    
   }
+
 }
 
 /* _buttons small */
 @include layout-small {
-
+  .base-ingredient-buttons {
+    margin: 0 auto;
+    width: 230px;
+  }
 }
 
 /* _buttons medium */
 @include layout-medium {
 
-  @keyframes btn-animation {
+  /*@keyframes btn-animation {
     0%   { opacity: .8; }
     50%  { opacity: .9; }
     100% { opacity: 1; }
-  }
+  }*/
 
 }
 

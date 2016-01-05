@@ -6,8 +6,8 @@
 		width: 90%;
 		text-align: center;
 		margin: 60px auto;
-		background-color: rgba(195, 88, 36, 0.84);
-		padding: 35px 0;
+		border: 4px solid $color-orange;
+		padding: 35px 0 10px 0;
 	}
 
 	.selected-base-ingredient {
@@ -20,22 +20,27 @@
     font-size: 2em;
     font-weight: 700;
     color: $color-orange;
-    border-bottom: 1px solid $color-orange;
+    border-bottom: 4px solid $color-orange;
 	}
 
-	.heading-instruction-2 {
-		margin-top: 0;
+	.selected-base-ingredient p:after {
+		font-family: FontAwesome;
+		font-size: 0.8em;
+		content: '\f00c';
+    position: relative;
+    top: -2px;
+		left: 4px;
 	}
 
 	.btn-catalog {
+		padding-bottom: 20px;
 		outline: none;
 		box-shadow: none;
 		background: none;
 		text-transform: uppercase;
-		font-family: 'Roboto Slab', sans-serif;
 		font-size: 1.2em;
 		font-weight: 700;
-		color: #86411F;
+		color: $color-orange;
 		transition: all .3s ease;
 	}
 
@@ -46,20 +51,20 @@
     position: absolute;
     top: -1px;
     font-weight: 500;
-    color: #86411F;
+    color: $color-orange;
     transition: all .3s ease;
 	}
 
 	.active {
 		outline: 0;
 		box-shadow: none;
-		color: rgba(232, 223, 220, .9);
+		color: #333;
 		transition: all .3s ease;
 	}
 
 	.active:before {
     transform: rotate(45deg);
-    color: rgba(232,223,220,.9);
+    color: #333;
     transition: all .3s ease;
  }
 

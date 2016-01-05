@@ -17,7 +17,11 @@ const BaseIngredient = (props) => {
 
 	return (
 		<div className="base-ingredients-group">
-			<h2 className="heading-instruction">Please choose a base ingredient below.</h2>
+			<h2 className="heading-instruction heading-instruction-pre">Hungry?</h2>
+			<h2 className="heading-instruction">
+				Let's figure something out together.<br />
+				Start by choosing a base ingredient below:
+			</h2>
 			<div className="base-ingredient-buttons">
 				{ baseIngredients } 
 			</div>
