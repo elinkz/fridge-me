@@ -3,10 +3,6 @@ import Actions from '../../../actions/actions';
 import CartButton from '../third/CartButton';
 
 export default (props) => {
-  let itemStyle = {
-    borderBottom: '1px solid #ccc',
-    paddingBottom: 15
-  }
   function cartOnClick () {
     if (!props.active) {
       Actions.addItem(props.item)
@@ -15,7 +11,7 @@ export default (props) => {
     }
   }
   return (
-    <div className="col-xs-6 col-sm-4 col-md-3" style={itemStyle}>
+    <div className="col-xs-6 col-sm-4 col-md-3">
       <div className="btn-group">
         <CartButton
           active={props.active}

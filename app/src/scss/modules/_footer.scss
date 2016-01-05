@@ -1,0 +1,45 @@
+/* _footer default */
+@include layout-default {
+  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
+  .footer {
+		width: 100%;
+		background-color: white;
+  }
+
+  .footer-steps {
+		text-align: center;
+		padding: 20px;
+  }
+
+  .footer-step {
+  	display: inline;
+  	margin: 20px;
+  	font-size: 1.5em;
+  	color: #A5A3A3;
+  }
+
+  .footer-step-active {
+  	font-weight: 700;
+  	color: #333333;
+  }
+}
+
+/* _footer small */
+@include layout-small {
+
+}
+
+/* _footer medium */
+@include layout-medium {
+
+}
+
+/* _footer medium-and-above */
+@include layout-medium-and-above {
+
+}
+
+/* _footer large */
+@include layout-large {
+
+}

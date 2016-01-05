@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router'
-import SearchInput from './SearchInput';
 import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Catalog from './Catalog';
@@ -14,17 +13,16 @@ class Second extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<h2 className="heading-instruction">
-					Base ingredient: {this.props.currentBaseIngredient.name}
+				<div className="selected-base-ingredient"><p>{this.props.currentBaseIngredient.name}</p></div>
+				<h2 className="heading-instruction heading-instruction-2">
 					<br />
-					Select more ingredients.
+					Select some more ingredients.
 				</h2>
-				<SearchInput />
-				<Catalog />
-				<ul>
-          <li className="next-step"><Link to="/third">Next Step</Link></li>
-					<li className="next-step"><Link to="/">Go back</Link></li>
-        </ul>
+				<Catalog /> 
+				{ /*this.props.currentBaseIngredient.name && <ul>
+	          <li className="next-step"><Link to="/third">Next Step</Link></li>
+						<li className="next-step"><Link to="/">Go back</Link></li>
+        </ul> */}
 			</div>
 		)
 	}
