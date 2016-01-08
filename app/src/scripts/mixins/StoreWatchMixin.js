@@ -9,15 +9,12 @@ export default ( InnerComponent, stateCallback ) => class extends React.Componen
   }
   componentWillMount(){
     Store.addChangeListener( this._onChange )
-    console.log('mount');
   }
   componentWillUnmount(){
     Store.removeChangeListener( this._onChange )
-    console.log('unmount');
   }
   _onChange(){
     this.setState( stateCallback( this.props ) )
-    console.log('on change');
   }
   render(){
     return <InnerComponent {...this.state} {...this.props} />

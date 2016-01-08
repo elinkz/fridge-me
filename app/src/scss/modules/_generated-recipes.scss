@@ -1,0 +1,65 @@
+/* _module config */
+// Here is a good place to put strictly module specific variables or mixins.
+
+/* _module default */
+@include layout-default {
+  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
+  .recipe-generated {
+  	text-align: center;
+  	font-weight: 700;
+  	a { color: #464545; }
+  }
+  .recipe-pic {
+		width: 80%;
+		border: 2px solid #FFF;
+		margin: 10px auto;
+		display: block;
+  }
+}
+
+/* _module small */
+@include layout-small {
+}
+
+/* _module medium */
+@include layout-medium {
+}
+
+/* _module medium-and-above */
+@include layout-medium-and-above {
+	.recipe-pic {
+		width: 220px;
+		height: 157px;
+		margin: 10px;
+		display: inline;
+		box-shadow: 1px 1px 1px #828282;
+		opacity: 0.8;
+		transition: all .3s ease;
+	}
+
+	.recipes-generated {
+		text-align: center;
+	}
+
+	.recipe-generated {
+		width: 220px;
+		display: inline-block;
+		margin: 10px;
+
+		a:hover { 
+			text-decoration: none; 
+			color: #333;
+		}
+	}
+
+	.recipe-pic:hover {
+		opacity: 1;
+		transition: all .3s ease;
+	}
+
+}
+
+/* _module large */
+@include layout-large {
+
+}

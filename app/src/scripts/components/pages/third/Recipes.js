@@ -17,12 +17,12 @@ const Recipes = ( props ) => {
   } );
   return (
     <div>
-      <h1>Recipes</h1>
       <table className="table table-hover">
         <thead>
           <tr>
             <th>Recipe</th>
             <th>Description</th>
+            <th>Ingredients</th>
           </tr>
         </thead>
         <tbody>
