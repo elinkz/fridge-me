@@ -18,7 +18,6 @@ const Cart = ( props ) => {
   } );
   return (
     <div>
-      <h1>Cart</h1>
       <table className="table table-hover">
         <thead>
           <tr>

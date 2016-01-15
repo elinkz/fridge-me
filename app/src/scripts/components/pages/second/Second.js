@@ -19,6 +19,7 @@ class Second extends React.Component {
 					Select some more ingredients.
 				</h2>
 				<Catalog /> 
+					<li className="next-step"><Link to="/third">Next Step</Link></li>
 				{ /*this.props.currentBaseIngredient.name && <ul>
 	          <li className="next-step"><Link to="/third">Next Step</Link></li>
 						<li className="next-step"><Link to="/">Go back</Link></li>
@@ -32,4 +33,4 @@ Second.propTypes = {
 	currentBaseIngredient: React.PropTypes.object
 }
 
-export default StoreWatchMixin( Second, setProps ); 
+export default StoreWatchMixin( Second, setProps );
