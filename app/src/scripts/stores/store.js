@@ -20,9 +20,7 @@ const _getItemInCart = ( item ) => {
 const _addItem = ( item ) => {
   if (!_getItemInCart( item )) {
     _cart.push(item);
-  } else {
-    console.log('Ingredient already added');
-  }
+  } 
   console.log("Ingredients in cart after addition", _cart);
 };
 

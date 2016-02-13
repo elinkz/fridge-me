@@ -4,17 +4,24 @@ import RecipesItem from './RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 const recipes = () => {
-  return { recipes: Store.getRecipes() }
+  return { recipes: Store.getRecipes(), cart: Store.getCart() }
 }
 
 const Recipes = ( props ) => {
-  var recipes = props.recipes.map( ( recipes, i ) => {
-    return (
-      <RecipesItem
-        key={i}
-        recipe={recipes}/>
+  var cartIds = props.cart.map(item => item.ingredientId) // Ex: [11, 23, 1]
+  var recipes = props.recipes
+    .filter(recipe => ( // Run filter function on all recipes
+      recipe.ingredients.some(ingredient => ( // Check if reciepe contains any of the chosen ingredients
+        cartIds.indexOf(ingredient.ingredientId) >= 0) // Ingredient check
       )
-  } );
+    )) // Now we have a list of reciepes which contain some of the chosen ingredients
+    .map( ( recipes, i ) => {
+      return (
+        <RecipesItem
+          key={i}
+          recipe={recipes}/>
+        )
+    } );
   return (
     <div>
       <table className="table table-hover">
