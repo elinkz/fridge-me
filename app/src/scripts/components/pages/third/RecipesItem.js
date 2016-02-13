@@ -6,14 +6,16 @@ export default (props) => {
 
 	let ingredients = [];
 	for(let i = 0; i < props.recipe.ingredients.length; i++) {
-		ingredients.push('ingredient:',props.recipe.ingredients[i].ingredientId);
+		ingredients.push(props.recipe.ingredients[i].ingredientId);
+		//console.log('Props: ', props.recipe.ingredients[i].ingredientId);
 	}
-	console.log(ingredients);
+//	console.log(ingredients);
 
 	return (
 		<tr>
       <td>{props.recipe.title}</td>
       <td>{props.recipe.description}</td>
+      <td>{ingredients}</td>
   	</tr>
 	)
 }

@@ -7,14 +7,14 @@
 	.base-ingredient-buttons {
 		display: table;
 		margin: 50px auto;
-    width: auto;
+    width: 380px;
 	}
 
   .btn-base-ingredient {
   	width: 85px;
   	height: 85px;
   	border-radius: 50%;
-  	margin: 13px;
+  	margin: 20px;
     outline: none;
     background-color: #4F3831;
     color: white;
@@ -36,11 +36,13 @@
 
 
   .next-step {
+    list-style: none;
     text-align: center;
     margin: 30px;
     a {
-      color: #313131;
-      border: 2px solid #313131;
+      text-decoration: none;
+      color: #333;
+      border: 2px solid #333;
       padding: 12px 30px;
       font-weight: 700;
       font-size: 16px;
@@ -52,9 +54,9 @@
 
     a:hover {
       text-decoration: none;
-      color: white;
-      background-color: #000000;
-      border: 2px solid #000000;
+      color: #F0EFEC;
+      background-color: #000;
+      border: 2px solid #000;
       transition: border .3s;
       transition: background-color .3s;
     }
