@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Catalog from './Catalog';
+import SearchInput from './SearchInput';
 import BaseIngredient from '../first/BaseIngredient';
 
 function setProps(){
@@ -18,6 +19,7 @@ class Second extends React.Component {
 					<br />
 					Select some more ingredients.
 				</h2>
+				<SearchInput />
 				<Catalog /> 
 					<li className="next-step"><Link to="/third">Next Step</Link></li>
 				{ /*this.props.currentBaseIngredient.name && <ul>
