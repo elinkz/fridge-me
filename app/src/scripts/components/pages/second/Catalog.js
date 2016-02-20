@@ -3,19 +3,25 @@ import Store from '../../../stores/store';
 import CatalogItem from './CatalogItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
-function getCatalog(){
-	return {items: Store.getCommonIngredients()}
+function getCart(){
+	return {chosenIngredients: Store.getCart()}
 }
 
 const Catalog = (props) => {
-	let items = props.items.map( (item, i) => {
-		return <CatalogItem active={!!Store.getItemInCart(item)} key={i} item={ item } />
+
+	let chosenIngredients = props.chosenIngredients.map( (item, i) => {
+		if (item.baseIngredient) { 
+			return ''; // Do not display baseIngredient 
+		} else {
+			return <CatalogItem active={!!Store.getItemInCart(item)} key={i} item={ item } />	
+		}
 	});
+	
 	return (
 		<div className="catalog">
-			{ items }
+			{ chosenIngredients }
 		</div>
 	)
 }
 
-export default StoreWatchMixin( Catalog, getCatalog ); 
+export default StoreWatchMixin( Catalog, getCart ); 

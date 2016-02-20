@@ -14,7 +14,7 @@ class Second extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<div className="selected-base-ingredient"><p>{this.props.currentBaseIngredient.name}</p></div>
+				<div className="selected-base-ingredient"><Link to="/"><i className="fa fa-chevron-left"></i></Link><p>{this.props.currentBaseIngredient.name}</p></div>
 				<h2 className="heading-instruction heading-instruction-2">
 					<br />
 					Select some more ingredients.
