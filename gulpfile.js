@@ -6,7 +6,7 @@ const watchify = require('watchify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const minifycss = require('gulp-minify-css');
-const del = require('del');
+const del = require('delete');
 const sourcemaps = require('gulp-sourcemaps');
 const notify = require("gulp-notify");
 const image = require('gulp-image');
@@ -99,18 +99,20 @@ gulp.task('build', ['clean', 'sass', 'image', 'copy'], function() {
   return buildScript('main.js', false);
 });
 
+// Watch files
+gulp.task('watch', function(){
+  gulp.watch(styleGlob, ['sass']);
+  gulp.watch('app/index.html', ['copy']);
+});
+
 // Task to build and watch files, used during development
-gulp.task('default', ['build'], function() {
+gulp.task('default', ['build', 'watch'], function() {
   // Serves built files with development web server
   browserSync.init({
       server: "./app/dist",
       port: 8888
   });
 
-  // Watch .scss files
-  gulp.watch(styleGlob, ['sass']);
-
-  gulp.watch('app/index.html', ['copy']);
 
   return buildScript('main.js', true);
 });

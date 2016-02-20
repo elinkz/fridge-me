@@ -48,14 +48,14 @@ class SearchInput extends React.Component {
     var tags = this.props.item
     var suggestions = this.props.items.map(item => item.name);
     return (
-      <div>
-      	<h2 className="view-2">Input Form</h2>
-          <ReactTags
-          	tags={tags} 
-            suggestions={suggestions}
-            handleDelete={this.handleDelete.bind(this)}
-            handleAddition={this.handleAddition.bind(this)}
-            handleDrag={this.handleDrag.bind(this)} />
+      <div className="search-input-wrapper">
+        <ReactTags className="search-input"
+        	tags={tags} 
+          suggestions={suggestions}
+          handleDelete={this.handleDelete.bind(this)}
+          handleAddition={this.handleAddition.bind(this)}
+          handleDrag={this.handleDrag.bind(this)} 
+          placeholder="Add new ingredient"/>
       </div>
     )
   }

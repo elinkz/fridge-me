@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+/*import React, {PropTypes} from 'react';
 
 function radio(name, selectedValue, onChange) {
   return React.createClass({
@@ -39,4 +39,4 @@ export default React.createClass({
     const renderedChildren = children(radio(name, selectedValue, onChange));
     return renderedChildren && React.Children.only(renderedChildren);
   }
-});
+});*/
