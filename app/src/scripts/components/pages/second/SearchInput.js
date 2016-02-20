@@ -30,9 +30,11 @@ class SearchInput extends React.Component {
         var tags = this.state.tags;
         // if typed in ingredient exists in database, add to array, else, dont
         var ingredientsInDb = this.props.items.map(item => item.name);
+
         if(ingredientsInDb.indexOf(tag) === -1) return false;
+        console.log('item props', this.props.items.indexOf(tag));
         tags.push({
-            id: tags.length + 1,
+            id: tags.length + 1, // TODO: hämta rätt id från ingrediensen.
             text: tag
         });
         
@@ -51,8 +53,6 @@ class SearchInput extends React.Component {
     }
     render() {
         var tags = this.state.tags;
-        console.log(tags);
-        console.log(this.props);
         var suggestions = this.props.items.map(item => item.name);
         return (
             <div>
