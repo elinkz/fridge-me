@@ -5,7 +5,8 @@ import BaseIngredientButton from './BaseIngredientButton';
 
 class BaseIngredientItem extends React.Component {
   _onClick () {
-    Actions.setBaseIngredient( this.props.baseIngredient )
+    Actions.setBaseIngredient( this.props.baseIngredient ),
+    Actions.addItem(this.props.baseIngredient)
   }
   render () {
     return (
