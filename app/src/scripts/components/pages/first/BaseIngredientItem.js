@@ -4,13 +4,23 @@ import BaseIngredientButton from './BaseIngredientButton';
 
 
 class BaseIngredientItem extends React.Component {
-  _onClick () {
-    Actions.setBaseIngredient( this.props.baseIngredient ),
-    Actions.addItem(this.props.baseIngredient)
+
+  _OnClick (props) {
+
+    if (this.props.isChosen) {
+      Actions.removeItem(this.props.baseIngredient);
+    } else {
+      Actions.addItem(this.props.baseIngredient)
+      Actions.setBaseIngredient( this.props.baseIngredient );
+    }
+
+    console.log(this.props.isChosen)
+    
   }
+
   render () {
     return (
-      <BaseIngredientButton isChosen={this.props.isChosen} onClick={ this._onClick.bind(this)} txt={ this.props.baseIngredient.name } />
+      <BaseIngredientButton isChosen={this.props.isChosen} onClick={ this._OnClick.bind(this)} txt={ this.props.baseIngredient.name } />
     )
   }
 }

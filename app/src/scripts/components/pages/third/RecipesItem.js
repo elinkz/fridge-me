@@ -12,10 +12,10 @@ export default (props) => {
 //	console.log(ingredients);
 
 	return (
-		<tr>
-      <td>{props.recipe.title}</td>
-      <td>{props.recipe.description}</td>
-      <td>{ingredients}</td>
-  	</tr>
+			<tr>
+				<td>{props.recipe.title}</td>
+				<td><img className="image" src={"../assets/img/" + props.recipe.imagePath} /></td>
+				<td>{props.recipe.description}</td>
+		  </tr>
 	)
 }
