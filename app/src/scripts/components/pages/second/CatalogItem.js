@@ -1,6 +1,6 @@
 import React from 'react';
 import Actions from '../../../actions/actions';
-import CartButton from '../third/CartButton';
+import CatalogButton from './CatalogButton';
 
 export default (props) => {
   function cartOnClick () {
@@ -13,7 +13,7 @@ export default (props) => {
   return (
     <div className="col-xs-6 col-sm-4 col-md-3">
       <div className="btn-group">
-        <CartButton
+        <CatalogButton
           active={props.active}
           handler={ cartOnClick }
           txt={ props.item.name }

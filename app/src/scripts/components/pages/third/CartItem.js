@@ -1,12 +1,12 @@
 import React from 'react';
-import CartButton from './CartButton';
+import CatalogButton from '../second/CatalogButton';
 import Actions from '../../../actions/actions';
 
 export default (props) => {
 	return (
 		<tr>
       <td>
-	      <CartButton
+	      <CatalogButton
           txt="x"
           handler={Actions.removeItem.bind(null, props.item )} />
       </td>

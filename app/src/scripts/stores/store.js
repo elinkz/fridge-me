@@ -18,9 +18,14 @@ const _getItemInCart = ( item ) => {
 };
 
 const _addItem = ( item ) => {
+  if ( item.baseIngredient ) {
+    removeCurrentBaseIngredient()
+  }
+
   if (!_getItemInCart( item )) {
     _cart.push(item);
   } 
+
   console.log("Ingredients in cart after addition", _cart);
 };
 
@@ -28,6 +33,10 @@ let _currentBaseIngredient = {};
 
 const _setCurrentBaseIngredient = ( baseIngredient ) => {
   _currentBaseIngredient = baseIngredient
+};
+
+const removeCurrentBaseIngredient = () => {
+  _removeItem( _currentBaseIngredient );
 };
 
 let _recipes = [];

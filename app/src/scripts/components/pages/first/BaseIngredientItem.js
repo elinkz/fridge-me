@@ -7,15 +7,8 @@ class BaseIngredientItem extends React.Component {
 
   _OnClick (props) {
 
-    if (this.props.isChosen) {
-      Actions.removeItem(this.props.baseIngredient);
-    } else {
-      Actions.addItem(this.props.baseIngredient)
-      Actions.setBaseIngredient( this.props.baseIngredient );
-    }
-
-    console.log(this.props.isChosen)
-    
+    Actions.addItem(this.props.baseIngredient)
+    Actions.setBaseIngredient( this.props.baseIngredient );    
   }
 
   render () {
