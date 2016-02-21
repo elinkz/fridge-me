@@ -31,6 +31,8 @@ class SearchInput extends React.Component {
     // Find chosen ingredient in DB
     var thisIngredient = ingredientsInDb.indexOf(tag);
 
+    // TODO: Lägg till ingrediens genom att klicka på den i suggestions-listan
+
     // Add the chosen ingredient to array
     Actions.addItem(this.props.items[thisIngredient]);
   }
@@ -55,6 +57,7 @@ class SearchInput extends React.Component {
           handleDelete={this.handleDelete.bind(this)}
           handleAddition={this.handleAddition.bind(this)}
           handleDrag={this.handleDrag.bind(this)} 
+          autocomplete={true}
           placeholder="Add new ingredient"/>
       </div>
     )
