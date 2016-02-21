@@ -6,7 +6,7 @@ import Recipes from './Recipes';
 class Third extends React.Component {
 	render() {
 		return (
-			<div className="main-module">
+			<div className="main-module main-module_step-3">
 				<h2 className="heading-instruction">
 					Generated recipes:
 				</h2>
