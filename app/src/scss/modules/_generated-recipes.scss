@@ -9,8 +9,8 @@
   	font-weight: 700;
   	a { color: #464545; }
   }
-  .recipe-pic {
-		width: 80%;
+  .image {
+		width: 100%;
 		border: 2px solid #FFF;
 		margin: 10px auto;
 		display: block;
@@ -27,9 +27,9 @@
 
 /* _module medium-and-above */
 @include layout-medium-and-above {
-	.recipe-pic {
-		width: 220px;
-		height: 157px;
+	.image {
+		width: 90%;
+		height: auto;
 		margin: 10px;
 		display: inline;
 		box-shadow: 1px 1px 1px #828282;
@@ -52,9 +52,16 @@
 		}
 	}
 
-	.recipe-pic:hover {
+	.image {
 		opacity: 1;
 		transition: all .3s ease;
+	}
+
+	.col-half {
+		display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px;
 	}
 
 }

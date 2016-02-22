@@ -5,6 +5,7 @@ import Template from './AppTemplate';
 import First from './pages/first/First';
 import Second from './pages/second/Second';
 import Third from './pages/third/Third';
+import Four from './pages/four/Four';
 
 const history = createHistory();
 
@@ -16,6 +17,7 @@ export default () => {
 		    <IndexRoute component={First} />
 		    <Route path="second" component={Second} />
 		    <Route path="third" component={Third} />
+		    <Route path="four" component={Four} />
 		  </Route>
 		</Router>
 	);
