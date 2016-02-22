@@ -29,7 +29,6 @@ const Recipes = ( props ) => {
           <tr>
             <th>Recipe</th>
             <th>Description</th>
-            <th>Ingredients</th>
           </tr>
         </thead>
         <tbody>

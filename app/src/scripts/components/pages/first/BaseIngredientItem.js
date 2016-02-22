@@ -2,7 +2,6 @@ import React from 'react';
 import Actions from '../../../actions/actions';
 import BaseIngredientButton from './BaseIngredientButton';
 
-
 class BaseIngredientItem extends React.Component {
 
   _OnClick (props) {

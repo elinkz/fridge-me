@@ -30,6 +30,7 @@ const _addItem = ( item ) => {
 };
 
 let _currentBaseIngredient = {};
+let _FinalRecipe = {};
 
 const _setCurrentBaseIngredient = ( baseIngredient ) => {
   _currentBaseIngredient = baseIngredient
@@ -37,6 +38,14 @@ const _setCurrentBaseIngredient = ( baseIngredient ) => {
 
 const removeCurrentBaseIngredient = () => {
   _removeItem( _currentBaseIngredient );
+};
+
+const _setChoosenRecipe = ( choosenRecipe ) => {
+  _FinalRecipe = choosenRecipe
+};
+
+const removeChoosenRecipe = () => {
+  _removeItem( _FinalRecipe );
 };
 
 let _recipes = [];
@@ -71,7 +80,6 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
     return _availableIngredients;
   }, 
 
-
   getCart(){
     return _cart;
   }, 
@@ -92,6 +100,10 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
     return _currentBaseIngredient;
   },
 
+  getChoosenRecipe() {
+    return _FinalRecipe;
+  },
+
   dispatcherIndex: register( function( action ){
     switch(action.actionType){
       case AppConstants.ADD_ITEM:
@@ -102,6 +114,9 @@ const AppStore = Object.assign({}, EventEmitter.prototype, {
         break;
       case AppConstants.SET_BASE_INGREDIENT:
         _setCurrentBaseIngredient( action.baseIngredient );
+        break;
+      case AppConstants.SET_FINAL_RECIPE:
+        _setChoosenRecipe( action.choosenRecipe );
         break;
       case AppConstants.GET_RECIPES_SUCCESS:
         _setRecipes( action.recipes );

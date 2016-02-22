@@ -18,7 +18,6 @@ class SearchInput extends React.Component {
   }
 
   handleDelete(i) {
- 
     Actions.removeItem(this.props.item)
   }
 

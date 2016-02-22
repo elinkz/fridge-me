@@ -1,6 +1,7 @@
 import React from 'react';
 import Actions from '../../../actions/actions';
 import Store from '../../../stores/store';
+import { Link } from 'react-router';
 
 export default (props) => {
 
@@ -9,12 +10,14 @@ export default (props) => {
 		ingredients.push(props.recipe.ingredients[i].ingredientId);
 		console.log('Props: ', props.recipe.ingredients[i].ingredientId);
 	}
-//	console.log(ingredients);
+
+	function handleClick() {
+		Actions.setFinalRecipe( this.params );
+	}
 
 	return (
 			<tr>
-				<td>{props.recipe.title}</td>
-				<td><img className="image" src={"../assets/img/" + props.recipe.imagePath} /></td>
+				<td><Link to="Four" onClick={handleClick} params={props.recipe}>{props.recipe.title}</Link></td>
 				<td>{props.recipe.description}</td>
 		  </tr>
 	)
