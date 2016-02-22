@@ -21,6 +21,12 @@ export default {
       baseIngredient
     })
   },
+  setFinalRecipe( choosenRecipe ){
+    dispatch({
+      actionType: AppConstants.SET_FINAL_RECIPE, 
+      choosenRecipe
+    })
+  },
   getRecipes(){
     dispatch({
       actionType: AppConstants.GET_RECIPES
