@@ -10,6 +10,7 @@ const del = require('delete');
 const sourcemaps = require('gulp-sourcemaps');
 const notify = require("gulp-notify");
 const image = require('gulp-image');
+const runSequence = require('run-sequence');
 const historyApiFallback = require('connect-history-api-fallback');
 const browserSync = require('browser-sync').create();
 
@@ -95,9 +96,17 @@ gulp.task('image', function () {
     .pipe(gulp.dest('./app/dist/assets/img'));
 });
 
-// Task to build project, used when building project for production environment
-gulp.task('build', ['clean', 'sass', 'image', 'copy'], function() {
+gulp.task('scripts', function(){
   return buildScript('main.js', false);
+});
+
+// Task to build project, used when building project for production environment
+/*gulp.task('build', ['clean', 'sass', 'image', 'copy'], function() {
+  return buildScript('main.js', false);
+});*/
+
+gulp.task('build', function(callback){
+  runSequence('clean', 'image', ['scripts', 'sass', 'copy'], callback);
 });
 
 // Watch files
@@ -116,7 +125,6 @@ gulp.task('default', ['build', 'watch'], function() {
         middleware: [ historyApiFallback() ]
       }
   });
-
-
   return buildScript('main.js', true);
+  
 });
