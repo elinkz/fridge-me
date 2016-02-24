@@ -10,6 +10,7 @@ const del = require('delete');
 const sourcemaps = require('gulp-sourcemaps');
 const notify = require("gulp-notify");
 const image = require('gulp-image');
+const historyApiFallback = require('connect-history-api-fallback');
 const browserSync = require('browser-sync').create();
 
 const styleGlob = 'app/src/scss/**/*.scss'
@@ -109,8 +110,11 @@ gulp.task('watch', function(){
 gulp.task('default', ['build', 'watch'], function() {
   // Serves built files with development web server
   browserSync.init({
-      server: "./app/dist",
-      port: 8888
+      port: 8888,
+      server: {
+        baseDir: "./app/dist",
+        middleware: [ historyApiFallback() ]
+      }
   });
 
 
