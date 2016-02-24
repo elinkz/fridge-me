@@ -4,11 +4,14 @@ import RecipesItem from './RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 const recipes = () => {
-  return { recipes: Store.getRecipes(), cart: Store.getCart() }
+  return { recipes: Store.getRecipes(), cart: Store.getCart(), baseingredient: Store.getCurrentBaseIngredient() }
 }
 
 const Recipes = ( props ) => {
   var cartIds = props.cart.map(item => item.ingredientId) // Ex: [11, 23, 1]
+  // this baseingredient-id must be in the recipes ingredient array!!
+  var baseIngredient = props.baseingredient.ingredientId;
+  console.log('id:',baseIngredient);
   var recipes = props.recipes
     .filter(recipe => ( // Run filter function on all recipes
       recipe.ingredients.some(ingredient => ( // Check if reciepe contains any of the chosen ingredients
