@@ -9,12 +9,13 @@ const recipes = () => {
 
 const Recipes = ( props ) => {
   var cartIds = props.cart.map(item => item.ingredientId) // Ex: [11, 23, 1]
-  // this baseingredient-id must be in the recipes ingredient array!!
+  // TODO:this ingredient-id must be in the recipes ingredient array!!
   var baseIngredient = props.baseingredient.ingredientId;
-  console.log('id:',baseIngredient);
-  var recipes = props.recipes
-    .filter(recipe => ( // Run filter function on all recipes
-      recipe.ingredients.some(ingredient => ( // Check if reciepe contains any of the chosen ingredients
+
+  console.log('id:',baseIngredient); // Ex: 1
+
+  var recipes = props.recipes.filter(recipe => ( // Run filter function on all recipes
+      recipe.ingredients.every(ingredient => ( // Check if reciepe contains any of the chosen ingredients
         cartIds.indexOf(ingredient.ingredientId) >= 0) // Ingredient check
       )
     )) // Now we have a list of reciepes which contain some of the chosen ingredients
@@ -25,6 +26,7 @@ const Recipes = ( props ) => {
           recipe={recipes}/>
         )
     } );
+
   return (
     <div>
       <table className="table table-hover">
