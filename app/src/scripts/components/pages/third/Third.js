@@ -14,7 +14,7 @@ class Third extends React.Component {
 				<Recipes />
 				<ul>
 					<li className="next-step"><Link to="Second">Go back</Link></li>
-        </ul>
+     		   </ul>
 			</div>
 		)
 	}

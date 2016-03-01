@@ -7,7 +7,9 @@ import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 function getStoreVals(){
   return {
     currentRecipe: Store.getChoosenRecipe(),
-    items: Store.getCommonIngredients()
+    items: Store.getCommonIngredients(),
+    cart: Store.getCart(),
+    baseIngredient: Store.getCurrentBaseIngredient()
   }
 }
 
@@ -17,6 +19,8 @@ class FinalRecipe extends React.Component {
   let thisIngredients = [];
   // ingredient id from ingrediendDB
   var finalRecipeIngredients = this.props.items.map(item => item.ingredientId);
+  var finalRecipeBaseingredient = this.props.currentRecipe.ingredients.map(item => item);
+  var baseIngredient = this.props.baseIngredient.name;
   // ingredientid, amout, unit from ingredientDB
   var ObjectIngredients = this.props.items.map(item => item);
     // loop through all ingredients in this recipe
@@ -41,7 +45,6 @@ class FinalRecipe extends React.Component {
         }
       }
     }
-    
 
     return (
       <div>
@@ -53,6 +56,7 @@ class FinalRecipe extends React.Component {
         </div>
         <div className="col-half">
         <h3>Ingredients:</h3>
+        <p key={finalRecipeBaseingredient[0].ingredientId}>{finalRecipeBaseingredient[0].amount} {finalRecipeBaseingredient[0].unit} of {baseIngredient}</p>
         {thisIngredients.map(function(info, index) {
           return <p key={ info.iId }>{info.iAmount} {info.iUnit} of {info.iName} </p>;
         })}
