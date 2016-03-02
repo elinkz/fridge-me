@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import BaseIngredient from './BaseIngredient';
 import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
+import Footer from '../../footer/Footer';
 
 function setProps () {
 	return {
@@ -20,6 +21,7 @@ class First extends React.Component {
           		<Link to="/second">Next Step</Link>
           	</li>
         </ul> }
+        <Footer step={1}></Footer>
 			</div>
 		)
 	}

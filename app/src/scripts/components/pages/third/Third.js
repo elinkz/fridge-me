@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Cart from './Cart';
 import Recipes from './Recipes';
+import Footer from '../../footer/Footer';
 
 class Third extends React.Component {
 	render() {
@@ -14,7 +15,8 @@ class Third extends React.Component {
 				<Recipes />
 				<ul>
 					<li className="next-step"><Link to="Second">Go back</Link></li>
-     		   </ul>
+     		</ul>
+     		<Footer step={3}></Footer>
 			</div>
 		)
 	}

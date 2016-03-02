@@ -5,6 +5,7 @@ import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Catalog from './Catalog';
 import SearchInput from './SearchInput';
 import BaseIngredient from '../first/BaseIngredient';
+import Footer from '../../footer/Footer';
 
 function setProps(){
 	return {
@@ -28,6 +29,7 @@ class Second extends React.Component {
 				<SearchInput />
 				{ !!additionalIngredients.length && <Catalog /> }
 				{ additionalIngredients.length >= 3 && <li className="next-step"><Link to="/third">Next Step</Link></li> }
+				<Footer step={2}></Footer>
 			</div>
 		)
 	}
