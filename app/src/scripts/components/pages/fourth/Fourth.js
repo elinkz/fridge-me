@@ -6,7 +6,7 @@ import FinalRecipe from './FinalRecipe';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Footer from '../../footer/Footer';
 
-class Four extends React.Component {
+class Fourth extends React.Component {
 	render() {
 		return (
 			<div className="main-module main-module_step-3">
@@ -20,4 +20,4 @@ class Four extends React.Component {
 	}
 };
 
-export default Four;
+export default Fourth;
