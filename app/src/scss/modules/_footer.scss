@@ -1,6 +1,9 @@
+/* _footer.scss */
+
+/* _footer config */
+
 /* _footer default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
   .footer {
 		width: 100%;
 		background-color: white;
@@ -15,12 +18,11 @@
   	display: inline;
   	margin: 20px;
   	font-size: 1.5em;
-  	color: #A5A3A3;
+  	color: #CACACA;
   }
 
   .footer-step-active {
-  	font-weight: 700;
-  	color: #333333;
+  	color: $color-orange;
   }
 }
 

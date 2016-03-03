@@ -1,11 +1,9 @@
 /* _header.scss */
 
 /* _header config */
-// Here is a good place to put strictly module specific variables or mixins.
 
 /* _header default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
 	.header {
 		position: relative;
 		height: 100px;

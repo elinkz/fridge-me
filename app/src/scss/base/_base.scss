@@ -1,8 +1,5 @@
 /* _base.scss */
 
-// This is a good place to put 'opinionated' resets, such as removing
-// -webkit-appearance on certain elements or to include very general
-// project specific styles.
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -16,10 +13,6 @@ body {
   background-color: $color-white;
   background: url("../img/4.jpeg") no-repeat center center fixed;
   background-size: cover;
-
-  // Set a standardized guaranteed line-height of 1, since the default interpreted
-  // value of 'normal' is browser specific
-  // http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
   line-height: 1;
 }
 * { box-sizing: border-box; }

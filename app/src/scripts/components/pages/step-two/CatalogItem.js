@@ -11,7 +11,7 @@ export default (props) => {
     }
   }
   return (
-    <div className="col-xs-6 col-sm-4 col-md-3">
+    <div className="col-xs-12 col-sm-4 col-md-3">
       <div className="btn-group">
         <CatalogButton
           active={props.active}

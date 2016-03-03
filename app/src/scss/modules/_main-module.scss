@@ -1,13 +1,9 @@
 /* _module.scss */
-// This is the basic layout of a module and might be handy when creating a new one.
-// Simply do a copy-paste and a find and replace to substitute ex. _module with _buttons.
 
 /* _module config */
-// Here is a good place to put strictly module specific variables or mixins.
 
 /* _module default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
   .heading-instruction {
     text-align: center;
     margin: 20px 5px;
@@ -21,8 +17,7 @@
   }
 
   .heading-instruction-2 {
-    margin: 60px auto;
-    width: 70%;
+    margin: 30px auto;
   }
 
   .module {
@@ -31,7 +26,6 @@
 
   .main-module {
     background-color: rgba(255,255,255,0.85);
-    padding: 70px 10px 20px;
     max-width: 750px;
     margin: 0 auto; 
     height: auto;
@@ -40,8 +34,12 @@
     z-index: 1;
   }
 
-  .main-module_step-2 {
-    padding: 70px 30px 20px;
+  .main-module_content {
+    padding: 70px 80px 20px;
+  }
+
+  .main-module_content-1 {
+    padding: 70px 73px 20px;
   }
 }
 
@@ -53,8 +51,11 @@
   }
 
   .heading-instruction-2 {
-    margin: 40px auto;
-    width: 100%;
+    margin: 20px auto;
+  }
+
+  .main-module_content {
+    padding: 70px 25px 20px;
   }
 
 }

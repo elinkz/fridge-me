@@ -18,16 +18,7 @@ const Cart = ( props ) => {
   } );
   return (
     <div>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>Item</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items}
-        </tbody>
-      </table>
+      
     </div>
   );
 }

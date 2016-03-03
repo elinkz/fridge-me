@@ -1,10 +1,5 @@
 /* style.scss */
 
-/*
-  These are general media-query independent imports, other general imports that
-  are dependant on media-queries are imported within _all.scss.
-*/
-
 @import 'base/variables';
 
 @import 'helpers/mixins';

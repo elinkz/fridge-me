@@ -1,20 +1,23 @@
+/* _catalog.scss */
+
+/* _catalog config */
+
 /* _catalog default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
 	.catalog {
 		display: table;
-		width: 90%;
 		text-align: center;
-		margin: 60px auto;
-		border: 4px solid $color-orange;
-		padding: 35px 0 10px 0;
+		margin: 30px auto;
+		//border: 4px solid $color-orange;
+		padding: 10px;
+		width: 100%;
+
 	}
 
 	.selected-base-ingredient {
     text-align: center;
     margin: 26px auto 0 auto;
     height: 65px;
-    width: 90%;
     text-transform: uppercase;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 2em;
@@ -32,14 +35,17 @@
 		left: 4px;
 	}
 
+	.btn-group { text-align: left;}
+
 	.btn-catalog {
 		padding-bottom: 20px;
 		outline: none;
 		box-shadow: none;
 		background: none;
 		text-transform: uppercase;
-		font-size: 1.2em;
+		font-size: 1.1em;
 		font-weight: 700;
+		text-align: left;
 		color: $color-orange;
 		transition: all .3s ease;
 	}
@@ -49,7 +55,7 @@
     content: "+";
     left: -15px;
     position: absolute;
-    top: -1px;
+    top: -2px;
     font-weight: 500;
     color: $color-orange;
     transition: all .3s ease;
@@ -64,7 +70,7 @@
 
 	.active:before {
     transform: rotate(45deg);
-    color: #333;
+    color: $color-orange;
     transition: all .3s ease;
  }
 
@@ -72,6 +78,7 @@
 
 /* _catalog small */
 @include layout-small {
+	.catalog { margin: 10px auto; }
 }
 
 /* _catalog medium */
