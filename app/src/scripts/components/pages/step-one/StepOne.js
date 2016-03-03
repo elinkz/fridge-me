@@ -11,7 +11,7 @@ function setProps () {
 	}
 }
 
-class First extends React.Component {
+class StepOne extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
@@ -19,7 +19,7 @@ class First extends React.Component {
 					<BaseIngredient />
 					{ this.props.currentBaseIngredient.name && <ul>
 	          	<li className="next-step">
-	          		<Link to="/second">Next Step</Link>
+	          		<Link to="/step-two">Next Step</Link>
 	          	</li>
 	        </ul> }
 	       </div>
@@ -29,4 +29,4 @@ class First extends React.Component {
 	}
 };
 
-export default StoreWatchMixin(First, setProps);
+export default StoreWatchMixin(StepOne, setProps);

@@ -4,7 +4,7 @@ import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Catalog from './Catalog';
 import SearchInput from './SearchInput';
-import BaseIngredient from '../first/BaseIngredient';
+import BaseIngredient from '../step-one/BaseIngredient';
 import Footer from '../../footer/Footer';
 
 function setProps(){
@@ -14,7 +14,7 @@ function setProps(){
 	}
 }
 
-class Second extends React.Component {
+class StepTwo extends React.Component {
 	render() {
 		const additionalIngredients = this.props.cart.filter(ingredient => !ingredient.baseIngredient)
 		return (
@@ -29,7 +29,7 @@ class Second extends React.Component {
 					</h2>
 					<SearchInput />
 					{ !!additionalIngredients.length && <Catalog /> }
-					{ additionalIngredients.length >= 3 && <li className="next-step"><Link to="/third">Next Step</Link></li> }
+					{ additionalIngredients.length >= 3 && <li className="next-step"><Link to="/step-three">Next Step</Link></li> }
 				</div>
 				<Footer step={2}></Footer>
 			</div>
@@ -37,14 +37,14 @@ class Second extends React.Component {
 	}
 };
 
-Second.propTypes = {
+StepTwo.propTypes = {
 	currentBaseIngredient: React.PropTypes.object,
 	cart: React.PropTypes.array
 }
 
-Second.defaultProps = {
+StepTwo.defaultProps = {
 	currentBaseIngredient: {},
 	cart: []
 }
 
-export default StoreWatchMixin( Second, setProps );
+export default StoreWatchMixin( StepTwo, setProps );

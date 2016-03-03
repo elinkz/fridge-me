@@ -2,10 +2,10 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 import { createHistory } from 'history'
 import Template from './AppTemplate';
-import First from './pages/first/First';
-import Second from './pages/second/Second';
-import Third from './pages/third/Third';
-import Fourth from './pages/fourth/Fourth';
+import StepOne from './pages/step-one/StepOne';
+import StepTwo from './pages/step-two/StepTwo';
+import StepThree from './pages/step-three/StepThree';
+import StepFour from './pages/step-four/StepFour';
 
 const history = createHistory();
 
@@ -14,10 +14,10 @@ export default () => {
 	return (
 		<Router history={ history }>
 		  <Route path="/" component={Template}>
-		    <IndexRoute component={First} />
-		    <Route path="second" component={Second} />
-		    <Route path="third" component={Third} />
-		    <Route path="fourth" component={Fourth} />
+		    <IndexRoute component={StepOne} />
+		    <Route path="step-two" component={StepTwo} />
+		    <Route path="step-three" component={StepThree} />
+		    <Route path="step-four" component={StepFour} />
 		  </Route>
 		</Router>
 	);

@@ -1,5 +1,5 @@
 import React from 'react';
-import CatalogButton from '../second/CatalogButton';
+import CatalogButton from '../step-two/CatalogButton';
 import Actions from '../../../actions/actions';
 
 export default (props) => {

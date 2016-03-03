@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Store from '../../../stores/store';
-import RecipesItem from '../third/RecipesItem';
+import RecipesItem from '../step-three/RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 function getStoreVals(){

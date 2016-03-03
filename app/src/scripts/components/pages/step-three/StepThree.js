@@ -4,7 +4,7 @@ import Cart from './Cart';
 import Recipes from './Recipes';
 import Footer from '../../footer/Footer';
 
-class Third extends React.Component {
+class StepThree extends React.Component {
 	render() {
 		return (
 			<div className="main-module main-module_step-3">
@@ -14,7 +14,7 @@ class Third extends React.Component {
 					</h2>
 					<Recipes />
 					<ul>
-						<li className="next-step"><Link to="Second">Go back</Link></li>
+						<li className="next-step"><Link to="/step-two">Go back</Link></li>
 	     		</ul>
 	     	</div>
      		<Footer step={3}></Footer>
@@ -23,4 +23,4 @@ class Third extends React.Component {
 	}
 };
 
-export default Third;
+export default StepThree;

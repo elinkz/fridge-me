@@ -16,7 +16,7 @@ export default (props) => {
 
 	return (
 			<tr>
-				<td><Link to="Fourth" onClick={handleClick} params={props.recipe}>{props.recipe.title}</Link></td>
+				<td><Link to="/step-four" onClick={handleClick} params={props.recipe}>{props.recipe.title}</Link></td>
 				<td>{props.recipe.description}</td>
 		  </tr>
 	)
