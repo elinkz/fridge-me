@@ -1,48 +1,57 @@
+/* _search-input.scss */
+
 /* _search-input config */
-// Here is a good place to put strictly module specific variables or mixins.
 
 /* _search-input default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
   .search-input-wrapper { 
-		margin: 0 auto 50px auto;
-		width: 90%;
+		margin: 0 auto;
+		position: relative;
   }
 
   .search-input-wrapper .ReactTags__suggestions {
-  	background-color: $color-orange;
-  	display: inline-block;
 		width: 100%;
+		position: absolute;
+		top: 0;
 		ul { margin-bottom: 0; }
   	mark { 
-  		background-color: green; 
-  		padding: 16px 0 16px 16px;
+  		//background-color: rgba(203, 97, 39, 0.58); 
+  		background-color: $color-orange;
+  		padding: 10px 0 10px 10px;
 			display: inline-block;
-			color: white;
-			margin-top: -4px;
+			color: #333;
+			font-size: 1.1em;
+			transition: all .3s;
+  	}
+  	li { 
+  		position: absolute;
+  		top: 0;
+  		cursor: pointer;
   	}
   }
 
   .search-input-wrapper input {
 		width: 100%;
-		background: none;
-		border: 4px solid #9C9089; 
+		background-color: rgba(136, 136, 136, 0.3);
 		padding: 10px;
 		width: 100%;
-		transition: all .3s;
-		font-size: 1.2em;
-		font-weight: 600;
+		font-size: 1.1em;
+		font-weight: 500;
 		&:focus { 
-			outline: none;
-			border: 4px solid $color-orange;
+			outline: 2px solid $color-orange;
+			background: none;
 		}
   }
+
+  *::-webkit-input-placeholder {
+    color: #5F5F5F;
+	}
 }
 
 /* _search-input small */
 @include layout-small {
 	.search-input-wrapper { 
-		margin: 0 auto 30px auto;
+		margin: 0 auto;
   }
 }
 

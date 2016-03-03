@@ -15,12 +15,14 @@ class First extends React.Component {
 	render() {
 		return (
 			<div className="main-module">
-				<BaseIngredient />
-				{ this.props.currentBaseIngredient.name && <ul>
-          	<li className="next-step">
-          		<Link to="/second">Next Step</Link>
-          	</li>
-        </ul> }
+				<div className="main-module_content main-module_content-1">
+					<BaseIngredient />
+					{ this.props.currentBaseIngredient.name && <ul>
+	          	<li className="next-step">
+	          		<Link to="/second">Next Step</Link>
+	          	</li>
+	        </ul> }
+	       </div>
         <Footer step={1}></Footer>
 			</div>
 		)

@@ -1,19 +1,17 @@
 /* _all.scss */
 
-// This is the place where you would include any SCSS that is using the media-query
-// mixins, such as layout-default or layout-large. Place them anywhere suitable,
-// below  the /* _media-queries */ import.
-
 /* _media-queries */
 @import 'media-queries/media-queries';
 
 /* _vendor */
 
 /* _base */
-@import 'base/typography';
+//@import 'base/typography';
 
 /* _grid */
 @import 'modules/grid';
+
+/* _modules */
 @import 'modules/main-module';
 @import 'modules/header';
 @import 'modules/buttons';
@@ -21,6 +19,3 @@
 @import 'modules/footer';
 @import 'modules/generated-recipes';
 @import 'modules/search-input';
-
-/* _modules */
-/* Eg. @import 'modules/buttons' */

@@ -11,7 +11,6 @@ function getCatalog(){
 class SearchInput extends React.Component {
 	constructor() {
 		super();
-		//this.state = { tags: [] }
     this.handleAddition = this.handleAddition.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
@@ -30,8 +29,6 @@ class SearchInput extends React.Component {
     // Find chosen ingredient in DB
     var thisIngredient = ingredientsInDb.indexOf(tag);
 
-    // TODO: Lägg till ingrediens genom att klicka på den i suggestions-listan
-
     // Add the chosen ingredient to array
     Actions.addItem(this.props.items[thisIngredient]);
   }
@@ -42,7 +39,7 @@ class SearchInput extends React.Component {
     tags.splice(currPos, 1);
     tags.splice(newPos, 0, tag);
 
-    // re-render 
+    // Re-render 
     this.setState({ tags: tags });
   }
   render() {
@@ -57,6 +54,7 @@ class SearchInput extends React.Component {
           handleAddition={this.handleAddition.bind(this)}
           handleDrag={this.handleDrag.bind(this)} 
           autocomplete={true}
+          autofocus={true}
           placeholder="Add new ingredient"/>
       </div>
     )

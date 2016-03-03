@@ -10,10 +10,12 @@ class Fourth extends React.Component {
 	render() {
 		return (
 			<div className="main-module main-module_step-3">
-				<FinalRecipe />
-				<ul>
-					<li className="next-step"><Link to="Third">Go back</Link></li>
-        </ul>
+				<div className="main-module_content">
+					<FinalRecipe />
+					<ul>
+						<li className="next-step"><Link to="Third">Go back</Link></li>
+	        </ul>
+	      </div>
         <Footer step={4}></Footer>
 			</div>
 		)

@@ -1,9 +1,9 @@
-/* _module config */
-// Here is a good place to put strictly module specific variables or mixins.
+/* _generated-recipes.scss */
 
-/* _module default */
+/* _generated-recipes config */
+
+/* _generated-recipes default */
 @include layout-default {
-  // Put all default (i.e small) styles in here, and not outside the layout-default mixin.
   .recipe-generated {
   	text-align: center;
   	font-weight: 700;
@@ -17,15 +17,15 @@
   }
 }
 
-/* _module small */
+/* _generated-recipes small */
 @include layout-small {
 }
 
-/* _module medium */
+/* _generated-recipes medium */
 @include layout-medium {
 }
 
-/* _module medium-and-above */
+/* _generated-recipes medium-and-above */
 @include layout-medium-and-above {
 	.image {
 		width: 90%;
@@ -66,7 +66,7 @@
 
 }
 
-/* _module large */
+/* _generated-recipes large */
 @include layout-large {
 
 }

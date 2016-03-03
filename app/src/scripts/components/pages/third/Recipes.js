@@ -11,11 +11,10 @@ const Recipes = ( props ) => {
   var cartIds = props.cart.map(item => item.ingredientId)
   cartIds.shift(); // Ex: [11, 23, 1]
   console.log('shift', cartIds);
-  // this baseingredient-id must be in the recipes ingredient array!!
   var baseIngredient = props.baseingredient.ingredientId;
-  console.log('id:',baseIngredient);
+  console.log('baseingredient-id:',baseIngredient);
   var recipes = props.recipes.filter(recipe => ( // Run filter function on all recipes
-      recipe.ingredients.some(ingredient => ( // Check if reciepe contains any of the chosen ingredients
+      recipe.ingredients.some(ingredient => ( // Check if recipe contains any of the chosen ingredients
         ingredient.ingredientId === baseIngredient )) && recipe.ingredients.some(ingredient => (cartIds.indexOf(ingredient.ingredientId) !== -1)) // Ingredient check
       )
     ) // Now we have a list of reciepes which contain some of the chosen ingredients
@@ -31,8 +30,6 @@ const Recipes = ( props ) => {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>Recipe</th>
-            <th>Description</th>
           </tr>
         </thead>
         <tbody>

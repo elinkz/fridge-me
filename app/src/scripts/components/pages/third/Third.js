@@ -8,14 +8,15 @@ class Third extends React.Component {
 	render() {
 		return (
 			<div className="main-module main-module_step-3">
-				<h2 className="heading-instruction">
-					Generated recipes:
-				</h2>
-				<Cart />
-				<Recipes />
-				<ul>
-					<li className="next-step"><Link to="Second">Go back</Link></li>
-     		</ul>
+				<div className="main-module_content">
+					<h2 className="heading-instruction">
+						Generated recipes:
+					</h2>
+					<Recipes />
+					<ul>
+						<li className="next-step"><Link to="Second">Go back</Link></li>
+	     		</ul>
+	     	</div>
      		<Footer step={3}></Footer>
 			</div>
 		)

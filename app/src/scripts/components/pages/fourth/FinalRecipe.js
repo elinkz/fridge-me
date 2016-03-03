@@ -17,30 +17,30 @@ class FinalRecipe extends React.Component {
   render() {
   let ingredients = [];
   let thisIngredients = [];
-  // ingredient id from ingrediendDB
+  // Ingredient id from DB
   var finalRecipeIngredients = this.props.items.map(item => item.ingredientId);
   var finalRecipeBaseingredient = this.props.currentRecipe.ingredients.map(item => item);
   var baseIngredient = this.props.baseIngredient.name;
-  // ingredientid, amout, unit from ingredientDB
+  // Ingredient id, amout, unit from DB
   var ObjectIngredients = this.props.items.map(item => item);
-    // loop through all ingredients in this recipe
+    // Loop through all ingredients in current recipe
     for(let i = 0; i < this.props.currentRecipe.ingredients.length; i++) {
       var ingredientid = this.props.currentRecipe.ingredients[i].ingredientId,
       amount = this.props.currentRecipe.ingredients[i].amount,
       unit = this.props.currentRecipe.ingredients[i].unit;
-      // push amount, unit, and id to ingredientsArray 
+      // Push amount, unit, and id to ingredientsArray 
       ingredients.push({ingredientid,amount,unit});
       
-      // loop throug every ingredient in DB
+      // Loop through all ingredients in DB
       for(let j = 0; j < ObjectIngredients.length; j++) {
         
-        // check if any ingredient in db matches the ingedients in the generated recipe
+        // Check if any ingredient in DB matches ingredients in generated recipe
         if(ingredients[i].ingredientid === ObjectIngredients[j].ingredientId) {
           var iName = ObjectIngredients[j].name,
           iAmount = ingredients[i].amount,
           iId = ingredients[i].ingredientid,
           iUnit = ingredients[i].unit;
-          // push the name, amount, id and unit to thisIngredients Array.
+          // Push name, amount, id and unit to thisIngredients array.
           thisIngredients.push({iName,iAmount,iId,iUnit});
         }
       }

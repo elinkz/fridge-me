@@ -6,9 +6,7 @@ export default (props) => {
 	return (
 		<tr>
       <td>
-	      <CatalogButton
-          txt="x"
-          handler={Actions.removeItem.bind(null, props.item )} />
+	      <CatalogButton />
       </td>
       <td>{props.item.name}</td>
   	</tr>

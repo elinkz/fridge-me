@@ -19,16 +19,18 @@ class Second extends React.Component {
 		const additionalIngredients = this.props.cart.filter(ingredient => !ingredient.baseIngredient)
 		return (
 			<div className="main-module main-module_step-2">
-				<div className="selected-base-ingredient">
-					<Link className="btn-back" to="/"><i className="fa fa-chevron-left"></i></Link>
-					<p>{this.props.currentBaseIngredient.name}</p>
+				<div className="main-module_content">
+					<div className="selected-base-ingredient">
+						<Link className="btn-back" to="/"><i className="fa fa-chevron-left"></i></Link>
+						<p>{this.props.currentBaseIngredient.name}</p>
+					</div>
+					<h2 className="heading-instruction heading-instruction-2">Add some more ingredients! 
+						<span className="additional">Type them in below & click add or press enter.</span>
+					</h2>
+					<SearchInput />
+					{ !!additionalIngredients.length && <Catalog /> }
+					{ additionalIngredients.length >= 3 && <li className="next-step"><Link to="/third">Next Step</Link></li> }
 				</div>
-				<h2 className="heading-instruction heading-instruction-2">Add some more ingredients! 
-					<span className="additional">Type them in below & click add or press enter.</span>
-				</h2>
-				<SearchInput />
-				{ !!additionalIngredients.length && <Catalog /> }
-				{ additionalIngredients.length >= 3 && <li className="next-step"><Link to="/third">Next Step</Link></li> }
 				<Footer step={2}></Footer>
 			</div>
 		)
