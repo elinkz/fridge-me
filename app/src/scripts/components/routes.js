@@ -9,7 +9,6 @@ import StepFour from './pages/step-four/StepFour';
 
 const history = createHistory();
 
-
 export default () => {
 	return (
 		<Router history={ history }>

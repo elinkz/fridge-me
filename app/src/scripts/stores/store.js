@@ -10,7 +10,6 @@ let _cart = [];
 
 const _removeItem = ( item ) => {
   _cart.splice( _cart.findIndex( i => i === item ), 1 );
-  console.log("Ingredients in cart after removal", _cart);
 };
 
 const _getItemInCart = ( item ) => {
@@ -25,8 +24,6 @@ const _addItem = ( item ) => {
   if (!_getItemInCart( item )) {
     _cart.push(item);
   } 
-
-  console.log("Ingredients in cart after addition", _cart);
 };
 
 let _currentBaseIngredient = {};
