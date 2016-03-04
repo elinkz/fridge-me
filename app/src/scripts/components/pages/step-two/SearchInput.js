@@ -55,7 +55,8 @@ class SearchInput extends React.Component {
           handleDrag={this.handleDrag.bind(this)} 
           autocomplete={true}
           autofocus={true}
-          placeholder="Add new ingredient"/>
+          minQueryLength={3}
+          placeholder="Add new ingredient e.g. &#34;tomatoes&#34;"/>
       </div>
     )
   }

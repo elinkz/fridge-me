@@ -19,13 +19,11 @@
   		background-color: $color-orange;
   		padding: 10px 0 10px 10px;
 			display: inline-block;
-			color: #333;
+			color: #fff;
 			font-size: 1.1em;
 			transition: all .3s;
   	}
   	li { 
-  		position: absolute;
-  		top: 0;
   		cursor: pointer;
   	}
   }

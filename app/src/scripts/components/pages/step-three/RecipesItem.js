@@ -15,9 +15,12 @@ export default (props) => {
 	}
 
 	return (
-			<tr>
-				<td><Link to="/step-four" onClick={handleClick} params={props.recipe}>{props.recipe.title}</Link></td>
-				<td>{props.recipe.description}</td>
-		  </tr>
+		<div className='generated-recipe'>
+			<p>
+				<span><Link to="/step-four" onClick={handleClick} params={props.recipe}>{props.recipe.title}</Link></span>
+				<span>{props.recipe.description}</span>
+				<span><img src={"../assets/img/" + props.recipe.imagePath} /></span>
+		  </p>
+		</div>
 	)
 }

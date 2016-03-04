@@ -22,20 +22,13 @@ const Recipes = ( props ) => {
       return (
         <RecipesItem
           key={i}
-          recipe={recipes}/>
+          recipe={recipes} />
         )
     } );
+    console.log('recipes: ', recipes);
   return (
-    <div>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody>
-          {recipes}
-        </tbody>
-      </table>
+    <div className="generated-recipes">
+      {recipes}
     </div>
   );
 }

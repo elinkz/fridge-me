@@ -1,7 +1,6 @@
 import React from 'react';
 import Store from '../../../stores/store';
 import CartItem from './CartItem';
-import RecipesItem from './RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 const ingredients = () => {
