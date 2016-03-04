@@ -1,0 +1,72 @@
+/* _final-recipe.scss */
+
+/* _final-recipe config */
+
+/* _final-recipe default */
+@include layout-default {
+  .recipe-generated {
+  	text-align: center;
+  	font-weight: 700;
+  	a { color: #464545; }
+  }
+  .image {
+		width: 100%;
+		border: 2px solid #FFF;
+		margin: 10px auto;
+		display: block;
+  }
+}
+
+/* _final-recipe small */
+@include layout-small {
+}
+
+/* _final-recipe medium */
+@include layout-medium {
+}
+
+/* _final-recipe medium-and-above */
+@include layout-medium-and-above {
+	.image {
+		width: 90%;
+		height: auto;
+		margin: 10px;
+		display: inline;
+		box-shadow: 1px 1px 1px #828282;
+		opacity: 0.8;
+		transition: all .3s ease;
+	}
+
+	.recipes-generated {
+		text-align: center;
+	}
+
+	.recipe-generated {
+		width: 220px;
+		display: inline-block;
+		margin: 10px;
+
+		a:hover { 
+			text-decoration: none; 
+			color: #333;
+		}
+	}
+
+	.image {
+		opacity: 1;
+		transition: all .3s ease;
+	}
+
+	.col-half {
+		display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px;
+	}
+
+}
+
+/* _final-recipe large */
+@include layout-large {
+
+}

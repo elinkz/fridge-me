@@ -10,9 +10,7 @@ const recipes = () => {
 const Recipes = ( props ) => {
   var cartIds = props.cart.map(item => item.ingredientId)
   cartIds.shift(); // Ex: [11, 23, 1]
-  console.log('shift', cartIds);
   var baseIngredient = props.baseingredient.ingredientId;
-  console.log('baseingredient-id:',baseIngredient);
   var recipes = props.recipes.filter(recipe => ( // Run filter function on all recipes
       recipe.ingredients.some(ingredient => ( // Check if recipe contains any of the chosen ingredients
         ingredient.ingredientId === baseIngredient )) && recipe.ingredients.some(ingredient => (cartIds.indexOf(ingredient.ingredientId) !== -1)) // Ingredient check
@@ -25,7 +23,6 @@ const Recipes = ( props ) => {
           recipe={recipes} />
         )
     } );
-    console.log('recipes: ', recipes);
   return (
     <div className="generated-recipes">
       {recipes}
