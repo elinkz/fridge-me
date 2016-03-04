@@ -7,7 +7,6 @@ function getStoreVals(){
   return {
     currentRecipe: Store.getChoosenRecipe(),
     items: Store.getCommonIngredients(),
-    cart: Store.getCart(),
     baseIngredient: Store.getCurrentBaseIngredient()
   }
 }
@@ -22,6 +21,7 @@ class FinalRecipe extends React.Component {
   var baseIngredient = this.props.baseIngredient.name;
   // Ingredient id, amout, unit from DB
   var ObjectIngredients = this.props.items.map(item => item);
+
     // Loop through all ingredients in current recipe
     for(let i = 0; i < this.props.currentRecipe.ingredients.length; i++) {
       var ingredientid = this.props.currentRecipe.ingredients[i].ingredientId,
@@ -61,14 +61,14 @@ class FinalRecipe extends React.Component {
         })}
         </div>
         <div className="col-full">
-        <h3>Description:</h3>
-        <p>{this.props.currentRecipe.description}</p>
+        <h3>Instruktions:</h3>
+        <p>{this.props.currentRecipe.instructions}</p>
         </div>
       </div>
     )
   }
 };
-
+// Set default props
 FinalRecipe.propTypes = {
   currentRecipe: React.PropTypes.object
 }
