@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Store from '../../../stores/store';
-import RecipesItem from '../step-three/RecipesItem';
 import FinalRecipe from './FinalRecipe';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Footer from '../../footer/Footer';

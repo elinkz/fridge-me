@@ -67,7 +67,11 @@
     position: absolute;
     left: 78px;
     line-height: 42px; 
+    transition: color .3s;
     i { color: #C7C3C0; }
+    &:hover {
+      i { color: $color-orange; }
+    }
   }
 
 }

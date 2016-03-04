@@ -27,15 +27,7 @@ const Recipes = ( props ) => {
     } );
   return (
     <div>
-      <table className="table table-hover">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody>
-          {recipes}
-        </tbody>
-      </table>
+     {recipes}  
     </div>
   );
 }

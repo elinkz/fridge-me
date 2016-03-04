@@ -10,7 +10,7 @@ class StepThree extends React.Component {
 			<div className="main-module main-module_step-3">
 				<div className="main-module_content">
 					<h2 className="heading-instruction">
-						Generated recipes:
+						Generated recipes
 					</h2>
 					<Recipes />
 					<ul>

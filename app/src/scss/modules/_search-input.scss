@@ -11,22 +11,29 @@
 
   .search-input-wrapper .ReactTags__suggestions {
 		width: 100%;
-		position: absolute;
-		top: 0;
-		ul { margin-bottom: 0; }
+		ul { 
+			margin-bottom: 0; 
+			background-color: #fff;
+			box-shadow: 0 1px 4px 1px rgba(152, 152, 152, 0.4);
+		}
   	mark { 
   		//background-color: rgba(203, 97, 39, 0.58); 
-  		background-color: $color-orange;
+  		background: 0;
   		padding: 10px 0 10px 10px;
 			display: inline-block;
 			color: #333;
 			font-size: 1.1em;
-			transition: all .3s;
+			transition: all .2s;
   	}
-  	li { 
-  		position: absolute;
-  		top: 0;
+  	li { color: #333; }
+  	li.active {
+  		background-color: $color-orange;
   		cursor: pointer;
+  		color: #fff;
+  		mark { 
+  			background-color: 0;
+  			color: #fff;
+  		}
   	}
   }
 
