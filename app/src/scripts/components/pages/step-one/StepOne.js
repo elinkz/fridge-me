@@ -5,8 +5,13 @@ import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Footer from '../../footer/Footer';
 
+/*if(localStorage.baseingredient !== 'undefined' ) {
+	var retrievedObject = localStorage.getItem('baseingredient')
+}*/
+
 function setProps () {
 	return {
+		//currentBaseIngredient: retrievedObject !== '' ? JSON.parse(retrievedObject) : Store.getCurrentBaseIngredient(),
 		currentBaseIngredient: Store.getCurrentBaseIngredient()
 	}
 }

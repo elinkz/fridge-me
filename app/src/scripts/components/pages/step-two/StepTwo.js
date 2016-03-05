@@ -7,8 +7,11 @@ import SearchInput from './SearchInput';
 import BaseIngredient from '../step-one/BaseIngredient';
 import Footer from '../../footer/Footer';
 
+var retrievedObject = localStorage.getItem('baseingredient')
+
 function setProps(){
 	return {
+		//currentBaseIngredient: retrievedObject !== '' ? JSON.parse(retrievedObject) : Store.getCurrentBaseIngredient(),
 		currentBaseIngredient: Store.getCurrentBaseIngredient(),
 		cart: Store.getCart()
 	}

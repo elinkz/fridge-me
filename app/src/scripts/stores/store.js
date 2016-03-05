@@ -4,6 +4,8 @@ import AppConstants from '../constants/constants';
 import { EventEmitter } from 'events';
 import Rebase from 're-base';
 
+// var retrievedObject = localStorage.getItem('baseingredient')
+
 const CHANGE_EVENT = 'change'
 
 let _cart = [];
@@ -35,6 +37,8 @@ const _setCurrentBaseIngredient = ( baseIngredient ) => {
 
 const removeCurrentBaseIngredient = () => {
   _removeItem( _currentBaseIngredient );
+  console.log('removecurrent', _currentBaseIngredient )
+ // localStorage.removeItem('baseingredient');
 };
 
 const _setChoosenRecipe = ( choosenRecipe ) => {

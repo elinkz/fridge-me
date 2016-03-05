@@ -5,9 +5,10 @@ import BaseIngredientButton from './BaseIngredientButton';
 class BaseIngredientItem extends React.Component {
 
   _OnClick (props) {
-
     Actions.addItem(this.props.baseIngredient)
-    Actions.setBaseIngredient( this.props.baseIngredient );    
+    localStorage.setItem('baseingredient', JSON.stringify(this.props.baseIngredient));
+    Actions.setBaseIngredient( this.props.baseIngredient )
+    console.log(localStorage.baseingredient)
   }
 
   render () {
