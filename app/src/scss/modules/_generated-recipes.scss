@@ -4,7 +4,10 @@
 
 /* _generated-recipes default */
 @include layout-default {
-	.generated-recipes { text-align: center; }
+	.generated-recipes { 
+		text-align: center; 
+		margin: 30px auto;
+	}
 	.generated-recipe {
 		display: inline-block;
 		position: relative;
@@ -30,10 +33,7 @@
 
 /* _generated-recipes small */
 @include layout-small {
-	.generated-recipes { 
-		width: 201px; 
-		margin: 0 auto; 
-	}
+	.generated-recipes { width: 201px; }
 	.generated-recipte_title { font-size: 1em; }
 	.generated-recipe_desc { display: none; }
 	.generated-recipe { margin: 10px }

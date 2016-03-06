@@ -47,22 +47,24 @@ class FinalRecipe extends React.Component {
 
     return (
       <div>
-        <h2 className="heading-instruction">
+        <h2 className="heading-instruction heading-instruction_gen">
           {this.props.currentRecipe.title}
         </h2>
-        <div className="col-half">
-          <img className="image" src={"../assets/img/" + this.props.currentRecipe.imagePath} />
-        </div>
-        <div className="col-half">
-        <h3>Ingredients:</h3>
-        <p key={finalRecipeBaseingredient[0].ingredientId}>{finalRecipeBaseingredient[0].amount} {finalRecipeBaseingredient[0].unit} of {baseIngredient}</p>
-        {thisIngredients.map(function(info, index) {
-          return <p key={ info.iId }>{info.iAmount} {info.iUnit} of {info.iName} </p>;
-        })}
-        </div>
-        <div className="col-full">
-        <h3>Instruktions:</h3>
-        <p>{this.props.currentRecipe.instructions}</p>
+        <div className="content-final-recipe">
+          <div className="content-final-recipe_half content-final-recipe_half-1">
+            <img className="image-final-recipe" src={"../assets/img/" + this.props.currentRecipe.imagePath} />
+          </div>
+          <div className="content-final-recipe_half content-final-recipe_half-2">
+          <h3>Ingredients</h3>
+          <p key={finalRecipeBaseingredient[0].ingredientId}>{finalRecipeBaseingredient[0].amount} {finalRecipeBaseingredient[0].unit} of {baseIngredient}</p>
+          {thisIngredients.map(function(info, index) {
+            return <p key={ info.iId }>{info.iAmount} {info.iUnit} of {info.iName} </p>;
+          })}
+          </div>
+          <div className="col-full">
+          <h3>Instructions</h3>
+          <p className="final-recipe_instructions">{this.props.currentRecipe.instructions}</p>
+          </div>
         </div>
       </div>
     )
