@@ -8,16 +8,8 @@ import BaseIngredient from '../step-one/BaseIngredient';
 import Footer from '../../footer/Footer';
 
 function setProps(){
-	if (typeof localStorage.baseingredient !== 'undefined'
-    && localStorage.baseingredient !== 'undefined') {
-	  	var retrievedObject = localStorage.getItem('baseingredient')
-	  	retrievedObject = JSON.parse(retrievedObject);
-
-	} else {
-		var retrievedObject = Store.getCurrentBaseIngredient();
-	}
 	return {
-		currentBaseIngredient: retrievedObject,
+		currentBaseIngredient: Store.getCurrentBaseIngredient(),
 		cart: Store.getCart()
 	}
 }

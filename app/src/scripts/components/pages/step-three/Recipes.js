@@ -4,14 +4,7 @@ import RecipesItem from './RecipesItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 const recipes = () => {
-  if (typeof localStorage.baseingredient !== 'undefined'
-  && localStorage.baseingredient !== 'undefined') {
-    var retrievedObject = localStorage.getItem('baseingredient')
-    retrievedObject = JSON.parse(retrievedObject);
-  } else {
-    var retrievedObject = Store.getCurrentBaseIngredient();
-  }
-  return { recipes: Store.getRecipes(), cart: Store.getCart(), baseingredient: retrievedObject }
+  return { recipes: Store.getRecipes(), cart: Store.getCart(), baseingredient: Store.getCurrentBaseIngredient() }
 }
 
 const Recipes = ( props ) => {
