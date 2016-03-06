@@ -1,5 +1,6 @@
 # FridgeMe
 Recipe generating web application built in React.js with es2015. This is a school project. 
+[Live demo here](http://fridgeme.se/)
 
 ### Version
 1.0.0
