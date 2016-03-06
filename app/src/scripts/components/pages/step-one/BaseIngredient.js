@@ -4,16 +4,9 @@ import BaseIngredientItem from './BaseIngredientItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
 function getStoreVals(){
-	if (typeof localStorage.baseingredient !== 'undefined'
-    && localStorage.baseingredient !== 'undefined') {
-	  	var retrievedObject = localStorage.baseingredient
-	  	var retrievedObject = JSON.parse(localStorage.baseingredient)
-	} else {
-		var retrievedObject = Store.getCurrentBaseIngredient()
-	}
 	return {
 		baseIngredients: Store.getBaseIngredients(),
-		currentBaseIngredient: retrievedObject
+		currentBaseIngredient: Store.getCurrentBaseIngredient()
 	}
 }
 

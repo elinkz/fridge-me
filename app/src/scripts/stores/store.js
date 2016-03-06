@@ -17,10 +17,6 @@ const _getItemInCart = ( item ) => {
 };
 
 const _addItem = ( item ) => {
-  if ( item.baseIngredient ) {
-    removeCurrentBaseIngredient()
-  }
-
   if (!_getItemInCart( item )) {
     _cart.push(item);
   } 
@@ -31,6 +27,7 @@ let _FinalRecipe = {};
 
 const _setCurrentBaseIngredient = ( baseIngredient ) => {
   _currentBaseIngredient = baseIngredient
+  localStorage.setItem('baseingredient', JSON.stringify(_currentBaseIngredient));
 };
 
 const removeCurrentBaseIngredient = () => {
