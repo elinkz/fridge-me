@@ -8,10 +8,12 @@ class BaseIngredientItem extends React.Component {
     Actions.addItem(this.props.baseIngredient)
     localStorage.setItem('baseingredient', JSON.stringify(this.props.baseIngredient));
     Actions.setBaseIngredient( this.props.baseIngredient )
-    console.log(localStorage.baseingredient)
   }
 
   render () {
+    var retrievedObject = localStorage.getItem('baseingredient')
+    retrievedObject = JSON.parse(retrievedObject)
+
     return (
       <BaseIngredientButton isChosen={this.props.isChosen} onClick={ this._OnClick.bind(this)} txt={ this.props.baseIngredient.name } />
     )

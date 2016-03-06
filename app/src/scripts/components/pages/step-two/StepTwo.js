@@ -7,12 +7,17 @@ import SearchInput from './SearchInput';
 import BaseIngredient from '../step-one/BaseIngredient';
 import Footer from '../../footer/Footer';
 
-var retrievedObject = localStorage.getItem('baseingredient')
-
 function setProps(){
+	if (typeof localStorage.baseingredient !== 'undefined'
+    && localStorage.baseingredient !== 'undefined') {
+	  	var retrievedObject = localStorage.getItem('baseingredient')
+	  	retrievedObject = JSON.parse(retrievedObject);
+
+	} else {
+		var retrievedObject = Store.getCurrentBaseIngredient();
+	}
 	return {
-		//currentBaseIngredient: retrievedObject !== '' ? JSON.parse(retrievedObject) : Store.getCurrentBaseIngredient(),
-		currentBaseIngredient: Store.getCurrentBaseIngredient(),
+		currentBaseIngredient: retrievedObject,
 		cart: Store.getCart()
 	}
 }
