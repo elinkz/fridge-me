@@ -4,11 +4,6 @@ import AppConstants from '../constants/constants';
 import { EventEmitter } from 'events';
 import Rebase from 're-base';
 
-if (typeof localStorage.baseingredient !== "undefined"
-    && localStorage.baseingredient !== "undefined") {
-    var retrievedObject = localStorage.getItem('baseingredient')
-}
-
 const CHANGE_EVENT = 'change'
 
 let _cart = [];
