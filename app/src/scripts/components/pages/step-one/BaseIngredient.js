@@ -3,11 +3,6 @@ import Store from '../../../stores/store';
 import BaseIngredientItem from './BaseIngredientItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
-
-
-
-
-
 function getStoreVals(){
 	if (typeof localStorage.baseingredient !== 'undefined'
     && localStorage.baseingredient !== 'undefined') {

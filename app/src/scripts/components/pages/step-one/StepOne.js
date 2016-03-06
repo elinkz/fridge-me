@@ -5,8 +5,6 @@ import Store from '../../../stores/store';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 import Footer from '../../footer/Footer';
 
-
-
 function setProps () {
 	if (typeof localStorage.baseingredient !== 'undefined'
 	    && localStorage.baseingredient !== 'undefined') {

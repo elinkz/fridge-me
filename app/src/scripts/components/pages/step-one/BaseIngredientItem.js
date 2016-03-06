@@ -9,7 +9,7 @@ class BaseIngredientItem extends React.Component {
     localStorage.setItem('baseingredient', JSON.stringify(this.props.baseIngredient));
     Actions.setBaseIngredient( this.props.baseIngredient )
   }
- 
+
   render () {
     var retrievedObject = localStorage.getItem('baseingredient')
     retrievedObject = JSON.parse(retrievedObject)
