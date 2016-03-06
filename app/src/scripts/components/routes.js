@@ -1,13 +1,15 @@
 import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
-import { createHistory } from 'history'
+import createHistory from 'history/lib/createHashHistory'
 import Template from './AppTemplate';
 import StepOne from './pages/step-one/StepOne';
 import StepTwo from './pages/step-two/StepTwo';
 import StepThree from './pages/step-three/StepThree';
 import StepFour from './pages/step-four/StepFour';
 
-const history = createHistory();
+const history = createHistory({
+  queryKey: false
+});
 
 export default () => {
 	return (
