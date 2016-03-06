@@ -3,15 +3,22 @@ import Store from '../../../stores/store';
 import BaseIngredientItem from './BaseIngredientItem';
 import StoreWatchMixin from '../../../mixins/StoreWatchMixin';
 
-/*var retrievedObject = localStorage.getItem('baseingredient')
-    console.log('retrieved object:',  JSON.parse(retrievedObject))
-*/
+
+
+
+
 
 function getStoreVals(){
+	if (typeof localStorage.baseingredient !== 'undefined'
+    && localStorage.baseingredient !== 'undefined') {
+	  	var retrievedObject = localStorage.baseingredient
+	  	var retrievedObject = JSON.parse(localStorage.baseingredient)
+	} else {
+		var retrievedObject = Store.getCurrentBaseIngredient()
+	}
 	return {
 		baseIngredients: Store.getBaseIngredients(),
-		//currentBaseIngredient: retrievedObject !== '' ? JSON.parse(retrievedObject) : Store.getCurrentBaseIngredient()
-		currentBaseIngredient: Store.getCurrentBaseIngredient()
+		currentBaseIngredient: retrievedObject
 	}
 }
 
