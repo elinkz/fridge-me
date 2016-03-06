@@ -25,7 +25,7 @@ class StepTwo extends React.Component {
 						<p>{this.props.currentBaseIngredient.name}</p>
 					</div>
 					<h2 className="heading-instruction heading-instruction-2">Add some more ingredients! 
-						<span className="additional">Type them in below & click add or press enter.</span>
+						<span className="additional">Type them in below & press enter.</span>
 					</h2>
 					<SearchInput />
 					{ !!additionalIngredients.length && <Catalog /> }
