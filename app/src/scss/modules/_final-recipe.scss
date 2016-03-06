@@ -4,21 +4,25 @@
 
 /* _final-recipe default */
 @include layout-default {
+	.content-final-recipe {
+		margin-top: 30px;
+		h3 { font-weight: 700; }
+		.final-recipe_instructions { line-height: 27px; }
+	}
   .recipe-generated {
   	text-align: center;
   	font-weight: 700;
   	a { color: #464545; }
   }
-  .image {
-		width: 100%;
-		border: 2px solid #FFF;
-		margin: 10px auto;
-		display: block;
+  .image-final-recipe {
+		border: 3px solid #FFF;
+		box-shadow: 0px 0px 6px #757575;
   }
 }
 
 /* _final-recipe small */
 @include layout-small {
+	.content-final-recipe { text-align: center; }
 }
 
 /* _final-recipe medium */
@@ -27,14 +31,18 @@
 
 /* _final-recipe medium-and-above */
 @include layout-medium-and-above {
-	.image {
-		width: 90%;
-		height: auto;
-		margin: 10px;
-		display: inline;
-		box-shadow: 1px 1px 1px #828282;
-		opacity: 0.8;
-		transition: all .3s ease;
+	.content-final-recipe_half {
+		width: 50%;
+    display: inline-block;
+	}
+	.content-final-recipe_half-2 {
+		vertical-align: top;
+		h3 { margin-top: 0; }
+		h3, p { padding-left: 30px; }
+	}
+
+	.content-final-recipe_half-1 {
+		vertical-align: top;
 	}
 
 	.recipes-generated {

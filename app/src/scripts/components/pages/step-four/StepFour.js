@@ -8,7 +8,7 @@ import Footer from '../../footer/Footer';
 class StepFour extends React.Component {
 	render() {
 		return (
-			<div className="main-module main-module_step-3">
+			<div className="main-module">
 				<div className="main-module_content">
 					<FinalRecipe />
 					<ul>

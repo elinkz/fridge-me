@@ -7,7 +7,7 @@
 
 	.base-ingredient-buttons {
 		display: table;
-		margin: 50px auto;
+		margin: 0px auto 50px auto;
     max-width: 500px;
 	}
 
@@ -38,7 +38,7 @@
   .next-step {
     list-style: none;
     text-align: center;
-    margin: 30px auto;
+    margin: 45px auto;
     a {
       text-decoration: none;
       color: #333;
@@ -66,12 +66,19 @@
   .btn-back {
     position: absolute;
     left: 78px;
-    line-height: 42px; 
+    line-height: 39px; 
     transition: color .3s;
-    i { color: #C7C3C0; }
+    i { 
+      color: #C7C3C0; 
+      font-size: .8em;
+    }
     &:hover {
       i { color: $color-orange; }
     }
+  }
+
+  .btn-go-back {
+    margin-bottom: 0;
   }
 
 }
@@ -92,18 +99,12 @@
   }
 
   .next-step {
-    margin: 20px auto;
+    margin: 40px auto;
   }
 }
 
 /* _buttons medium */
 @include layout-medium {
-
-  /*@keyframes btn-animation {
-    0%   { opacity: .8; }
-    50%  { opacity: .9; }
-    100% { opacity: 1; }
-  }*/
 
 }
 

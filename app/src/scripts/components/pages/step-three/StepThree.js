@@ -9,12 +9,14 @@ class StepThree extends React.Component {
 		return (
 			<div className="main-module main-module_step-3">
 				<div className="main-module_content">
-					<h2 className="heading-instruction">
+					<h2 className="heading-instruction heading-instruction_gen">
 						Generated recipes
 					</h2>
 					<Recipes />
 					<ul>
-						<li className="next-step"><Link to="/step-two">Go back</Link></li>
+						<li className="next-step btn-go-back">
+							<Link to="/step-two">Go back</Link>
+						</li>
 	     		</ul>
 	     	</div>
      		<Footer step={3}></Footer>
