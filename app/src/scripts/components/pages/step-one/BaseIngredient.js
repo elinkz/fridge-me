@@ -22,6 +22,10 @@ const BaseIngredient = (props) => {
 				<span className="additional"> Start by choosing a base ingredient below.</span>
 			</h2>
 			<div className="base-ingredient-buttons">
+				<button onClick={props.onClick} className='btn-base-ingredient'> Chicken </button>
+				<button onClick={props.onClick} className='btn-base-ingredient'> Vego </button>
+				<button onClick={props.onClick} className='btn-base-ingredient'> Beef </button>
+				<button onClick={props.onClick} className='btn-base-ingredient'> Fish </button>
 				{ baseIngredients } 
 			</div>
 		</div>

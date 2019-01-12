@@ -19,7 +19,7 @@ class StepOne extends React.Component {
 					<BaseIngredient />
 					{ this.props.currentBaseIngredient.name && <ul>
 	          	<li className="next-step">
-	          		<Link to="/step-two">Next Step</Link>
+	          		<Link to="/step-two">Next</Link>
 	          	</li>
 	        </ul> }
 	       </div>
